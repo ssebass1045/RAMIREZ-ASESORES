@@ -1,0 +1,507 @@
+.main {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+  color: var(--white);
+  padding: 100px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+  background-size: cover;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: #ffd700;
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 215, 0, 0.3);
+  z-index: -1;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Categorías Section */
+.categorias {
+  background: var(--white);
+}
+
+.categoriasContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoriasTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.categoriasSubtitle {
+  font-size: 1.2rem;
+  color: var(--gray-medium);
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categoriasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.categoriaCard {
+  background: var(--white);
+  border: 2px solid var(--light-blue);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.categoriaCard:hover {
+  border-color: var(--primary-blue);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.categoriaCard.categoriaActiva {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.categoriaNombre {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.categoriaCount {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  color: inherit;
+}
+
+.categoriaCard.categoriaActiva .categoriaNombre,
+.categoriaCard.categoriaActiva .categoriaCount {
+  color: var(--white);
+}
+
+/* Preguntas Section */
+.preguntas {
+  background: var(--gray-light);
+}
+
+.preguntasContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.preguntasHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.preguntasTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.preguntasCount {
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 1rem;
+  background: var(--light-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.preguntasList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preguntaItem {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--light-blue);
+  transition: all 0.3s ease;
+}
+
+.preguntaItem.preguntaActiva {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow);
+}
+
+.preguntaButton {
+  width: 100%;
+  padding: 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+}
+
+.preguntaButton:hover {
+  background: var(--light-blue);
+}
+
+.preguntaTexto {
+  flex: 1;
+  padding-right: 2rem;
+  line-height: 1.5;
+}
+
+.preguntaIcon {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--light-blue);
+  transition: all 0.3s ease;
+}
+
+.preguntaItem.preguntaActiva .preguntaIcon {
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(180deg);
+}
+
+.respuestaContent {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.respuestaTexto {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--gray-medium);
+  line-height: 1.7;
+}
+
+.respuestaTexto p {
+  margin-bottom: 1.5rem;
+}
+
+.respuestaMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-blue);
+  font-size: 0.9rem;
+}
+
+.respuestaCategoria {
+  color: var(--primary-blue);
+  font-weight: 500;
+  background: var(--light-blue);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* Formulario Section */
+.formulario {
+  background: var(--white);
+}
+
+.formularioContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formularioText {
+  max-width: 500px;
+}
+
+.formularioTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.formularioSubtitle {
+  font-size: 1.1rem;
+  color: var(--gray-medium);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.formularioBenefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.benefitIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.formularioForm {
+  background: var(--gray-light);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--light-blue);
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--light-blue);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(81, 112, 255, 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--gray-medium);
+}
+
+.formSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235170ff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.formNote {
+  font-size: 0.85rem;
+  color: var(--gray-medium);
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--text-dark) 0%, #2c3e50 100%);
+  color: var(--white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ctaSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .formularioContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .categoriasTitle {
+    font-size: 2rem;
+  }
+  
+  .preguntasTitle {
+    font-size: 1.8rem;
+  }
+  
+  .formularioTitle {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 0 40px;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .preguntasHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .categoriasGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .categoriasGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .categoriasTitle {
+    font-size: 1.8rem;
+  }
+  
+  .preguntaButton {
+    padding: 1.25rem;
+  }
+  
+  .preguntaTexto {
+    padding-right: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .formularioForm {
+    padding: 1.5rem;
+  }
+}
