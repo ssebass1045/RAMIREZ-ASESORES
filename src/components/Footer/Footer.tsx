@@ -116,27 +116,27 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter & Social */}
+          {/* Mapa y Redes Sociales */}
           <div className={styles.footerSection}>
-            <h3 className={styles.footerTitle}>Mantente Informado</h3>
-            <p className={styles.newsletterText}>
-              Suscríbete para recibir noticias, consejos y actualizaciones sobre contabilidad y finanzas.
-            </p>
+            <h3 className={styles.footerTitle}>Ubicación y Redes</h3>
             
-            <form className={styles.newsletterForm}>
-              <input
-                type="email"
-                placeholder="Tu correo electrónico"
-                className={styles.newsletterInput}
-                required
+            {/* Mapa de Google Maps */}
+            <div className={styles.mapContainer}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-75.569905424164!3d6.201661493798989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e468280b8c6e6c9%3A0x4c95d0e0c8c9c9c9!2sCarrera%2065%20%2345-20%2C%20Medell%C3%ADn%2C%20Antioquia%2C%20Colombia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+                width="100%"
+                height="200"
+                style={{ border: 0, borderRadius: '8px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación de Ramírez y Asesores SAS en Medellín"
+                className={styles.mapIframe}
               />
-              <button type="submit" className={styles.newsletterButton}>
-                Suscribirse
-              </button>
-            </form>
+            </div>
 
             <div className={styles.socialMedia}>
-              <h4 className={styles.socialTitle}>Síguenos</h4>
+              <h4 className={styles.socialTitle}>Síguenos en Redes Sociales</h4>
               <div className={styles.socialIcons}>
                 {socialMedia.map((social) => (
                   <a

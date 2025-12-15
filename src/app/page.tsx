@@ -1,8 +1,12 @@
+'use client';
+
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
 import styles from './page.module.css';
 import Link from 'next/link';
+import { services } from '@/data/services';
+import Contacto from './contacto/page';
 
 export default function Home() {
   return (
@@ -46,19 +50,18 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.heroImage}>
-                <div className={styles.imagePlaceholder}>
-                  {/* Aquí irá una imagen profesional */}
-                  <div className={styles.placeholderText}>
-                    Imagen Profesional
-                  </div>
-                </div>
+                <img 
+                  src="/home/hero-profesional.jpg" 
+                  alt="Profesionales de Ramírez y Asesores SAS"
+                  className={styles.heroPhoto}
+                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Servicios Destacados */}
-        <section className={`${styles.services} section-padding`}>
+        {/* Todos los Servicios */}
+        <section className={`${styles.allServices} section-padding`}>
           <div className="container">
             <div className="text-center">
               <h2 className={styles.sectionTitle}>
@@ -69,48 +72,37 @@ export default function Home() {
               </p>
             </div>
             
-            <div className={styles.servicesGrid}>
-              <div className={`card ${styles.serviceCard} slide-in-left`}>
-                <div className={styles.serviceIcon}>📊</div>
-                <h3>Outsourcing Contable</h3>
-                <p>
-                  Gestión contable completa con equipo experto. Registro de operaciones, 
-                  nómina, impuestos y estados financieros bajo NIIF.
-                </p>
-                <Link href="/servicios/outsourcing-contable" className={styles.serviceLink}>
-                  Conocer más →
-                </Link>
-              </div>
-
-              <div className={`card ${styles.serviceCard} fade-in-up`}>
-                <div className={styles.serviceIcon}>🔍</div>
-                <h3>Revisoría Fiscal</h3>
-                <p>
-                  Servicio preventivo e independiente para proteger los intereses 
-                  de socios e inversionistas frente a entes de control.
-                </p>
-                <Link href="/servicios/revisoria-fiscal" className={styles.serviceLink}>
-                  Conocer más →
-                </Link>
-              </div>
-
-              <div className={`card ${styles.serviceCard} slide-in-right`}>
-                <div className={styles.serviceIcon}>📋</div>
-                <h3>Auditoría Financiera</h3>
-                <p>
-                  Verificación independiente de la información financiera 
-                  y evaluación de procesos internos de tu empresa.
-                </p>
-                <Link href="/servicios/auditoria-financiera" className={styles.serviceLink}>
-                  Conocer más →
-                </Link>
-              </div>
-            </div>
-
-            <div className={styles.servicesCta}>
-              <Link href="/servicios" className="btn btn-primary">
-                Ver Todos los Servicios
-              </Link>
+            <div className={styles.allServicesGrid}>
+              {services.map((service, index) => (
+                <div 
+                  key={service.id} 
+                  className={`card ${styles.serviceCard} hover-lift`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className={styles.serviceImage}>
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className={styles.servicePhoto}
+                    />
+                  </div>
+                  <div className={styles.serviceContent}>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <div className={styles.serviceFeatures}>
+                      {service.features.slice(0, 3).map((feature, i) => (
+                        <div key={i} className={styles.featureItem}>
+                          <span className={styles.featureIcon}>✓</span>
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <Link href={`/servicios/${service.id}`} className={styles.serviceLink}>
+                      Conocer más →
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -164,11 +156,11 @@ export default function Home() {
               </div>
               
               <div className={styles.whyUsImage}>
-                <div className={styles.imagePlaceholder}>
-                  <div className={styles.placeholderText}>
-                    Imagen de Equipo de Trabajo
-                  </div>
-                </div>
+                <img 
+                  src="/home/equipo-trabajo.jpg" 
+                  alt="Equipo de trabajo de Ramírez y Asesores SAS"
+                  className={styles.whyUsPhoto}
+                />
               </div>
             </div>
           </div>
@@ -196,49 +188,220 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Navegación Rápida */}
-<section className={`${styles.quickNav} section-padding`}>
-  <div className="container">
-    <div className="text-center">
-      <h2 className={styles.sectionTitle}>
-        Explora Nuestro <span className={styles.highlight}>Sitio</span>
-      </h2>
-      <p className={styles.sectionSubtitle}>
-        Acceso rápido a todas nuestras secciones
-      </p>
-    </div>
-    
-    <div className={styles.quickNavGrid}>
-      <Link href="/equipo" className={`card ${styles.quickNavCard}`}>
-        <div className={styles.quickNavIcon}>👥</div>
-        <h3>Nuestro Equipo</h3>
-        <p>Conoce a nuestros profesionales especializados</p>
-        <span className={styles.quickNavLink}>Ver Equipo →</span>
-      </Link>
-      
-      <Link href="/preguntas-frecuentes" className={`card ${styles.quickNavCard}`}>
-        <div className={styles.quickNavIcon}>❓</div>
-        <h3>Preguntas Frecuentes</h3>
-        <p>Resuelve tus dudas sobre nuestros servicios</p>
-        <span className={styles.quickNavLink}>Ver FAQ →</span>
-      </Link>
-      
-      <Link href="/blog" className={`card ${styles.quickNavCard}`}>
-        <div className={styles.quickNavIcon}>📚</div>
-        <h3>Blog Especializado</h3>
-        <p>Artículos sobre contabilidad y finanzas</p>
-        <span className={styles.quickNavLink}>Ver Blog →</span>
-      </Link>
-      
-      <Link href="/servicios" className={`card ${styles.quickNavCard}`}>
-        <div className={styles.quickNavIcon}>🛠️</div>
-        <h3>Todos los Servicios</h3>
-        <p>Descubre nuestra oferta completa</p>
-        <span className={styles.quickNavLink}>Ver Servicios →</span>
-      </Link>
-    </div>
-  </div>
-</section>
+
+        {/* Sección de Equipo Destacado */}
+        <section className={`${styles.teamSection} section-padding`}>
+          <div className="container">
+            <div className="text-center">
+              <h2 className={styles.sectionTitle}>
+                Nuestro <span className={styles.highlight}>Equipo</span> de Expertos
+              </h2>
+              <p className={styles.sectionSubtitle}>
+                Profesionales altamente calificados con años de experiencia
+              </p>
+            </div>
+            
+            <div className={styles.teamGrid}>
+              <div className={`card ${styles.teamCard}`}>
+                <div className={styles.teamImage}>
+                  <div className={styles.imageWrapper}>
+                    <img 
+                      src="/team/nestor-ramirez.png" 
+                      alt="Néstor Augusto Ramírez Ospina"
+                      className={styles.teamPhoto}
+                    />
+                  </div>
+                </div>
+                <div className={styles.teamInfo}>
+                  <h3>Néstor Augusto Ramírez Ospina</h3>
+                  <p className={styles.teamRole}>Gerente</p>
+                  <p className={styles.teamContact}>gerencia@ramirezasesores.co</p>
+                  <p className={styles.teamExperience}>Más de 15 años de experiencia en consultoría empresarial</p>
+                </div>
+              </div>
+              
+              <div className={`card ${styles.teamCard}`}>
+                <div className={styles.teamImage}>
+                  <div className={styles.imageWrapper}>
+                    <img 
+                      src="/team/viviana-vargas.png" 
+                      alt="Viviana María Vargas Franco"
+                      className={styles.teamPhoto}
+                    />
+                  </div>
+                </div>
+                <div className={styles.teamInfo}>
+                  <h3>Viviana María Vargas Franco</h3>
+                  <p className={styles.teamRole}>Coordinadora Administración y GH</p>
+                  <p className={styles.teamContact}>gestionhumana@ramirezasesores.co</p>
+                  <p className={styles.teamExperience}>Especialista en gestión humana y administración empresarial</p>
+                </div>
+              </div>
+              
+              <div className={`card ${styles.teamCard}`}>
+                <div className={styles.teamImage}>
+                  <div className={styles.imageWrapper}>
+                    <img 
+                      src="/team/maria-callejas.png" 
+                      alt="María Fernanda Callejas Saldarriaga"
+                      className={styles.teamPhoto}
+                    />
+                  </div>
+                </div>
+                <div className={styles.teamInfo}>
+                  <h3>María Fernanda Callejas Saldarriaga</h3>
+                  <p className={styles.teamRole}>Auditora y Revisora Fiscal</p>
+                  <p className={styles.teamContact}>revisoria@ramirezasesores.co</p>
+                  <p className={styles.teamExperience}>Experta en auditoría financiera y cumplimiento normativo</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className={styles.teamCta}>
+              <Link href="/equipo" className="btn btn-primary">
+                Ver Todo el Equipo
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Sección de Preguntas Frecuentes Destacadas */}
+        <section className={`${styles.faqSection} section-padding`}>
+          <div className="container">
+            <div className="text-center">
+              <h2 className={styles.sectionTitle}>
+                Preguntas <span className={styles.highlight}>Frecuentes</span>
+              </h2>
+              <p className={styles.sectionSubtitle}>
+                Respuestas a las consultas más comunes sobre nuestros servicios
+              </p>
+            </div>
+            
+            <div className={styles.faqGrid}>
+              <div className={`card ${styles.faqCard}`}>
+                <h3>¿Qué es el outsourcing contable?</h3>
+                <p>Es la externalización de la gestión contable de tu empresa a un equipo de expertos, permitiéndote enfocarte en el crecimiento del negocio mientras garantizamos el cumplimiento normativo.</p>
+              </div>
+              
+              <div className={`card ${styles.faqCard}`}>
+                <h3>¿Cuándo es obligatoria la revisoría fiscal?</h3>
+                <p>Es obligatoria para sociedades por acciones cuando sus activos brutos superan los 5.000 salarios mínimos legales mensuales vigentes.</p>
+              </div>
+              
+              <div className={`card ${styles.faqCard}`}>
+                <h3>¿Qué ventajas tiene contratar sus servicios?</h3>
+                <p>Ahorro de costos, acceso a equipo experto, reducción de riesgos tributarios, información contable precisa y cumplimiento normativo garantizado.</p>
+              </div>
+              
+              <div className={`card ${styles.faqCard}`}>
+                <h3>¿Trabajan con empresas de todos los tamaños?</h3>
+                <p>Sí, atendemos desde emprendimientos hasta grandes corporaciones, adaptando nuestros servicios a las necesidades específicas de cada cliente.</p>
+              </div>
+            </div>
+            
+            <div className={styles.faqCta}>
+              <Link href="/preguntas-frecuentes" className="btn btn-outline">
+                Ver Todas las Preguntas
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Sección de Blog Destacado */}
+        <section className={`${styles.blogSection} section-padding`}>
+          <div className="container">
+            <div className="text-center">
+              <h2 className={styles.sectionTitle}>
+                Blog <span className={styles.highlight}>Especializado</span>
+              </h2>
+              <p className={styles.sectionSubtitle}>
+                Artículos y guías sobre contabilidad, finanzas y normatividad para tu empresa
+              </p>
+            </div>
+            
+            <div className={styles.blogGrid}>
+              <div className={`card ${styles.blogCard}`}>
+                <div className={styles.blogImage}>
+                  <img 
+                    src="/blog/outsourcing-pymes.jpg" 
+                    alt="5 Beneficios del Outsourcing Contable para PYMES en Medellín"
+                    className={styles.blogPhoto}
+                  />
+                </div>
+                <div className={styles.blogContent}>
+                  <div className={styles.blogMeta}>
+                    <span className={styles.blogCategory}>Contabilidad</span>
+                    <span className={styles.blogDate}>15 Mar 2024</span>
+                  </div>
+                  <h3>5 Beneficios del Outsourcing Contable para PYMES en Medellín</h3>
+                  <p>Descubre cómo el outsourcing contable puede optimizar costos y mejorar la eficiencia en tu empresa medellinense.</p>
+                  <div className={styles.blogFooter}>
+                    <span className={styles.blogAuthor}>Por: Néstor Ramírez</span>
+                    <Link href="/blog/beneficios-outsourcing-contable-pymes-medellin" className={styles.blogLink}>
+                      Leer más →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
+              <div className={`card ${styles.blogCard}`}>
+                <div className={styles.blogImage}>
+                  <img 
+                    src="/blog/normativa-tributaria.jpg" 
+                    alt="Novedades en Normativa Tributaria 2024 en Colombia"
+                    className={styles.blogPhoto}
+                  />
+                </div>
+                <div className={styles.blogContent}>
+                  <div className={styles.blogMeta}>
+                    <span className={styles.blogCategory}>Normatividad</span>
+                    <span className={styles.blogDate}>28 Feb 2024</span>
+                  </div>
+                  <h3>Novedades en Normativa Tributaria 2024 en Colombia</h3>
+                  <p>Actualización completa de los cambios en la normativa tributaria colombiana para el año 2024.</p>
+                  <div className={styles.blogFooter}>
+                    <span className={styles.blogAuthor}>Por: María Fernanda Callejas</span>
+                    <Link href="/blog/novedades-normativa-tributaria-2024-colombia" className={styles.blogLink}>
+                      Leer más →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
+              <div className={`card ${styles.blogCard}`}>
+                <div className={styles.blogImage}>
+                  <img 
+                    src="/blog/revisoria-preventiva.jpg" 
+                    alt="Ventajas de una Revisoría Fiscal Preventiva para tu Empresa"
+                    className={styles.blogPhoto}
+                  />
+                </div>
+                <div className={styles.blogContent}>
+                  <div className={styles.blogMeta}>
+                    <span className={styles.blogCategory}>Revisoría Fiscal</span>
+                    <span className={styles.blogDate}>20 Ene 2024</span>
+                  </div>
+                  <h3>Ventajas de una Revisoría Fiscal Preventiva para tu Empresa</h3>
+                  <p>Cómo una revisoría fiscal preventiva puede proteger los intereses de tu empresa en Medellín.</p>
+                  <div className={styles.blogFooter}>
+                    <span className={styles.blogAuthor}>Por: Viviana Vargas</span>
+                    <Link href="/blog/ventajas-revisoria-fiscal-preventiva" className={styles.blogLink}>
+                      Leer más →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className={styles.blogCta}>
+              <Link href="/blog" className="btn btn-primary">
+                Ver Todos los Artículos
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <Contacto></Contacto>
 
       </main>
       <Footer />

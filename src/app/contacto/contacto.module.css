@@ -276,7 +276,7 @@
   color: var(--white);
 }
 
-.whatsappButton {
+.contactWhatsappButton {
   background: var(--white);
   color: #25D366;
   border: none;
@@ -286,7 +286,7 @@
   transition: all 0.3s ease;
 }
 
-.whatsappButton:hover {
+.contactWhatsappButton:hover {
   background: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
 }
@@ -297,32 +297,27 @@
   margin: 0;
 }
 
-.mapContainer {
+.mapNote {
   margin-top: 2rem;
-}
-
-.mapPlaceholder {
-  height: 250px;
+  padding: 1.5rem;
   background: var(--light-blue);
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--primary-blue);
+  border-left: 4px solid var(--primary-blue);
 }
 
-.mapText {
-  font-size: 1.5rem;
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
-}
-
-.mapNote {
+.mapNote p {
+  margin: 0.5rem 0;
   color: var(--gray-medium);
-  text-align: center;
-  max-width: 200px;
-  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.mapNote strong {
+  color: var(--text-dark);
+}
+
+.mapNote em {
+  color: var(--gray-medium);
   font-size: 0.9rem;
 }
 

@@ -6,90 +6,35 @@ import Footer from '@/components/Footer/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
 import styles from './articulo.module.css';
 import Link from 'next/link';
+import { blogPosts } from '@/data/blog';
 
-// Datos de todos los artículos (deberían venir de una API o CMS en producción)
-const articulos = [
-  {
-    id: 'beneficios-outsourcing-contable-pymes-medellin',
-    titulo: '5 Beneficios del Outsourcing Contable para PYMES en Medellín',
-    descripcion: 'Descubre cómo el outsourcing contable puede optimizar costos y mejorar la eficiencia en tu empresa medellinense.',
-    fecha: '15 de Enero, 2024',
-    categoria: 'Outsourcing Contable',
-    tiempoLectura: '5 min',
-    imagen: '/blog/outsourcing-pymes.jpg',
-    destacado: true,
-    contenido: `
-      <h2>Introducción</h2>
-      <p>El outsourcing contable se ha convertido en una estrategia clave para las PYMES en Medellín que buscan optimizar recursos, reducir costos y mejorar la eficiencia operativa. En un mercado tan competitivo como el antioqueño, contar con un equipo de expertos en contabilidad puede marcar la diferencia en el crecimiento y sostenibilidad de tu empresa.</p>
-      
-      <h2>1. Reducción de Costos Operativos</h2>
-      <p>Una de las principales ventajas del outsourcing contable es la significativa reducción de costos. Al externalizar los servicios contables, eliminas los gastos asociados con:</p>
-      <ul>
-        <li>Salarios y prestaciones sociales de personal contable</li>
-        <li>Capacitación y actualización constante del equipo</li>
-        <li>Licencias de software especializado</li>
-        <li>Espacio físico y equipos de oficina</li>
-      </ul>
-      
-      <h2>2. Acceso a Expertos Especializados</h2>
-      <p>Con el outsourcing contable, tu empresa tiene acceso a un equipo multidisciplinario de profesionales con experiencia en diferentes áreas:</p>
-      <ul>
-        <li>Contadores públicos certificados</li>
-        <li>Especialistas en normativa NIIF</li>
-        <li>Expertos en tributación colombiana</li>
-        <li>Consultores en procesos administrativos</li>
-      </ul>
-      
-      <h2>3. Información Contable Precisa y Oportuna</h2>
-      <p>Un servicio de outsourcing contable profesional garantiza:</p>
-      <ul>
-        <li>Registros contables actualizados diariamente</li>
-        <li>Estados financieros precisos y oportunos</li>
-        <li>Reportes gerenciales personalizados</li>
-        <li>Alertas tempranas sobre situaciones financieras críticas</li>
-      </ul>
-      
-      <h2>4. Cumplimiento Normativo Garantizado</h2>
-      <p>En Ramírez y Asesores SAS nos mantenemos actualizados con:</p>
-      <ul>
-        <li>Cambios en la normativa tributaria colombiana</li>
-        <li>Actualizaciones en NIIF y normas contables</li>
-        <li>Requerimientos de la DIAN y otras entidades de control</li>
-        <li>Obligaciones laborales y de seguridad social</li>
-      </ul>
-      
-      <h2>5. Enfoque en el Core Business</h2>
-      <p>Al delegar la gestión contable a expertos, tu equipo puede concentrarse en:</p>
-      <ul>
-        <li>Desarrollo del negocio principal</li>
-        <li>Atención al cliente y ventas</li>
-        <li>Innovación y mejora de productos/servicios</li>
-        <li>Estrategias de crecimiento y expansión</li>
-      </ul>
-      
-      <h2>Conclusión</h2>
-      <p>El outsourcing contable representa una solución estratégica para las PYMES de Medellín que buscan optimizar sus recursos, garantizar el cumplimiento normativo y enfocarse en su crecimiento empresarial. En Ramírez y Asesores SAS contamos con más de 15 años de experiencia acompañando a empresas antioqueñas en su desarrollo financiero y contable.</p>
-    `
-  },
-  {
-    id: 'novedades-normativa-tributaria-2024-colombia',
-    titulo: 'Novedades en Normativa Tributaria 2024 en Colombia',
-    descripcion: 'Actualización completa de los cambios en la normativa tributaria colombiana para el año 2024.',
-    fecha: '10 de Enero, 2024',
-    categoria: 'Consultoría Tributaria',
-    tiempoLectura: '8 min',
-    imagen: '/blog/normativa-tributaria.jpg',
-    destacado: true,
-    contenido: 'Contenido del artículo sobre normativa tributaria...'
-  },
-  // ... agregar los demás artículos con su contenido completo
-];
+// Función para formatear fecha
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+// Función para obtener el nombre del autor
+const getAuthorName = (author: string) => {
+  const authorMap: Record<string, { name: string, role: string }> = {
+    'Néstor Ramírez': { name: 'Néstor Ramírez', role: 'Gerente - Especialista en Outsourcing Contable' },
+    'María Fernanda Callejas': { name: 'María Fernanda Callejas', role: 'Auditora y Revisora Fiscal' },
+    'Paula Montoya': { name: 'Paula Montoya', role: 'Coordinadora de Contabilidad' },
+    'Viviana Vargas': { name: 'Viviana Vargas', role: 'Coordinadora Administrativa y Gestión Humana' }
+  };
+  
+  return authorMap[author] || { name: author, role: 'Experto en Contabilidad y Finanzas' };
+};
 
 export default function ArticuloPage() {
   const params = useParams();
   const articuloId = params.id as string;
   
-  const articulo = articulos.find(a => a.id === articuloId);
+  const articulo = blogPosts.find(a => a.id === articuloId);
   
   if (!articulo) {
     return (
@@ -124,18 +69,20 @@ export default function ArticuloPage() {
           <div className="container">
             <div className={styles.heroContent}>
               <div className={styles.heroMeta}>
-                <span className={styles.categoria}>{articulo.categoria}</span>
-                <span className={styles.fecha}>{articulo.fecha}</span>
-                <span className={styles.tiempoLectura}>{articulo.tiempoLectura} lectura</span>
+                <span className={styles.categoria}>{articulo.category}</span>
+                <span className={styles.fecha}>{formatDate(articulo.date)}</span>
+                <span className={styles.tiempoLectura}>{articulo.readTime} lectura</span>
               </div>
-              <h1 className={styles.heroTitle}>{articulo.titulo}</h1>
-              <p className={styles.heroDescripcion}>{articulo.descripcion}</p>
+              <h1 className={styles.heroTitle}>{articulo.title}</h1>
+              <p className={styles.heroDescripcion}>{articulo.excerpt}</p>
               <div className={styles.heroAuthor}>
                 <div className={styles.authorInfo}>
-                  <div className={styles.authorAvatar}>RA</div>
+                  <div className={styles.authorAvatar}>
+                    {getAuthorName(articulo.author).name.split(' ').map(n => n[0]).join('')}
+                  </div>
                   <div>
-                    <p className={styles.authorName}>Equipo Ramírez y Asesores SAS</p>
-                    <p className={styles.authorRole}>Expertos en Contabilidad y Finanzas</p>
+                    <p className={styles.authorName}>{getAuthorName(articulo.author).name}</p>
+                    <p className={styles.authorRole}>{getAuthorName(articulo.author).role}</p>
                   </div>
                 </div>
               </div>
@@ -150,7 +97,7 @@ export default function ArticuloPage() {
               <div className={styles.contenidoPrincipal}>
                 <div 
                   className={styles.articuloContenido}
-                  dangerouslySetInnerHTML={{ __html: articulo.contenido }}
+                  dangerouslySetInnerHTML={{ __html: articulo.content }}
                 />
                 
                 {/* Compartir */}
@@ -181,8 +128,8 @@ export default function ArticuloPage() {
                 <div className={`card ${styles.sidebarCard}`}>
                   <h3 className={styles.sidebarTitle}>Artículos Relacionados</h3>
                   <div className={styles.articulosRelacionados}>
-                    {articulos
-                      .filter(a => a.id !== articuloId && a.categoria === articulo.categoria)
+                    {blogPosts
+                      .filter(a => a.id !== articuloId && a.category === articulo.category)
                       .slice(0, 3)
                       .map((relacionado) => (
                         <Link 
@@ -190,8 +137,8 @@ export default function ArticuloPage() {
                           href={`/blog/${relacionado.id}`}
                           className={styles.articuloRelacionado}
                         >
-                          <h4>{relacionado.titulo}</h4>
-                          <p>{relacionado.descripcion.substring(0, 100)}...</p>
+                          <h4>{relacionado.title}</h4>
+                          <p>{relacionado.excerpt.substring(0, 100)}...</p>
                         </Link>
                       ))}
                   </div>
@@ -200,10 +147,10 @@ export default function ArticuloPage() {
                 <div className={`card ${styles.sidebarCard}`}>
                   <h3 className={styles.sidebarTitle}>Categorías</h3>
                   <div className={styles.categoriasList}>
-                    {['Outsourcing Contable', 'Revisoría Fiscal', 'Auditoría', 'Consultoría Tributaria', 'Asesoría Aduanera', 'Asesoría Financiera'].map((categoria) => (
+                    {Array.from(new Set(blogPosts.map(post => post.category))).map((categoria) => (
                       <Link 
                         key={categoria} 
-                        href={`/blog?categoria=${categoria}`}
+                        href={`/blog`}
                         className={styles.categoriaLink}
                       >
                         {categoria}
@@ -221,7 +168,7 @@ export default function ArticuloPage() {
           <div className="container">
             <div className={styles.ctaContent}>
               <h2 className={styles.ctaTitle}>
-                ¿Necesitas asesoría personalizada sobre {articulo.categoria.toLowerCase()}?
+                ¿Necesitas asesoría personalizada sobre {articulo.category.toLowerCase()}?
               </h2>
               <p className={styles.ctaSubtitle}>
                 Nuestros expertos están listos para ayudarte con soluciones específicas para tu empresa

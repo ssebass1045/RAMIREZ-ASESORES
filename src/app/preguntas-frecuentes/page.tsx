@@ -244,24 +244,28 @@ export default function PreguntasFrecuentes() {
           </div>
         </section>
 
-        {/* Formulario de Preguntas */}
+        {/* Formulario de Preguntas - Redirige a WhatsApp */}
         <section className={`${styles.formulario} section-padding`}>
           <div className="container">
             <div className={styles.formularioContent}>
               <div className={styles.formularioText}>
                 <h2 className={styles.formularioTitle}>¿No encontraste tu respuesta?</h2>
                 <p className={styles.formularioSubtitle}>
-                  Envíanos tu pregunta y nuestro equipo de expertos te responderá 
-                  en menos de 24 horas hábiles
+                  Envíanos tu pregunta por WhatsApp y recibe <strong>respuesta inmediata </strong> 
+                  gracias a nuestro agente de IA especializado
                 </p>
                 <div className={styles.formularioBenefits}>
                   <div className={styles.benefit}>
+                    <span className={styles.benefitIcon}>🤖</span>
+                    <span><strong>Respuesta inmediata</strong> con agente de IA</span>
+                  </div>
+                  <div className={styles.benefit}>
                     <span className={styles.benefitIcon}>⚡</span>
-                    <span>Respuesta en menos de 24 horas</span>
+                    <span>Seguimiento en menos de 24 horas por expertos</span>
                   </div>
                   <div className={styles.benefit}>
                     <span className={styles.benefitIcon}>👨‍💼</span>
-                    <span>Atención personalizada de expertos</span>
+                    <span>Atención personalizada de especialistas</span>
                   </div>
                   <div className={styles.benefit}>
                     <span className={styles.benefitIcon}>🔒</span>
@@ -270,63 +274,34 @@ export default function PreguntasFrecuentes() {
                 </div>
               </div>
               
-              <form className={styles.formularioForm}>
-                <div className={styles.formGroup}>
-                  <input
-                    type="text"
-                    placeholder="Tu nombre completo *"
-                    className={styles.formInput}
-                    required
-                  />
+              <div className={styles.whatsappForm}>
+                <div className={styles.whatsappInfo}>
+                  <div className={styles.whatsappIcon}>💬</div>
+                  <h3 className={styles.whatsappTitle}>Consulta por WhatsApp</h3>
+                  <p className={styles.whatsappDescription}>
+                    Haz clic en el botón para abrir WhatsApp y enviar tu pregunta directamente. 
+                    Nuestro agente de IA te dará respuesta inmediata y, si es necesario, 
+                    un experto humano te contactará en menos de 24 horas.
+                  </p>
+                  
+                  <button 
+                    className={`btn btn-primary ${styles.whatsappButton}`}
+                    onClick={() => {
+                      const message = `¡Hola! Tengo una pregunta sobre los servicios de Ramírez y Asesores:\n\n`;
+                      const url = `https://wa.me/573215829812?text=${encodeURIComponent(message)}`;
+                      window.open(url, '_blank');
+                    }}
+                  >
+                    <span style={{ marginRight: '10px' }}>💬</span>
+                    Enviar Pregunta por WhatsApp
+                  </button>
+                  
+                  <p className={styles.whatsappNote}>
+                    <strong>Ventajas:</strong> Respuesta instantánea • Sin formularios • Conversación directa • 
+                    Puedes adjuntar documentos • Historial de conversación guardado
+                  </p>
                 </div>
-                
-                <div className={styles.formGroup}>
-                  <input
-                    type="email"
-                    placeholder="Correo electrónico *"
-                    className={styles.formInput}
-                    required
-                  />
-                </div>
-                
-                <div className={styles.formGroup}>
-                  <input
-                    type="tel"
-                    placeholder="Teléfono (opcional)"
-                    className={styles.formInput}
-                  />
-                </div>
-                
-                <div className={styles.formGroup}>
-                  <select className={styles.formSelect} required>
-                    <option value="">Selecciona una categoría *</option>
-                    <option value="Outsourcing Contable">Outsourcing Contable</option>
-                    <option value="Revisoría Fiscal">Revisoría Fiscal</option>
-                                        <option value="Auditoría">Auditoría</option>
-                    <option value="Asesoría Aduanera">Asesoría Aduanera</option>
-                    <option value="Consultoría Tributaria">Consultoría Tributaria</option>
-                    <option value="General">General</option>
-                  </select>
-                </div>
-                
-                <div className={styles.formGroup}>
-                  <textarea
-                    placeholder="Tu pregunta o consulta específica *"
-                    className={styles.formTextarea}
-                    rows={4}
-                    required
-                  />
-                </div>
-                
-                <button type="submit" className={`btn btn-primary ${styles.submitButton}`}>
-                  Enviar Pregunta
-                </button>
-                
-                <p className={styles.formNote}>
-                  Al enviar tu pregunta, aceptas nuestra política de privacidad.
-                  Te contactaremos por el medio que prefieras.
-                </p>
-              </form>
+              </div>
             </div>
           </div>
         </section>

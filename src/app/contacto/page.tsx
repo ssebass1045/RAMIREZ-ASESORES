@@ -325,7 +325,7 @@ ${formData.mensaje}
                   <div className={styles.whatsappCta}>
                     <button
                       onClick={handleWhatsAppClick}
-                      className={`btn btn-primary ${styles.whatsappButton}`}
+                      className={`btn btn-primary ${styles.contactWhatsappButton}`}
                     >
                       💬 Chatear por WhatsApp
                     </button>
@@ -334,15 +334,9 @@ ${formData.mensaje}
                     </p>
                   </div>
 
-                  <div className={styles.mapContainer}>
-                    <div className={styles.mapPlaceholder}>
-                      <div className={styles.mapText}>
-                        📍 Mapa de Google Maps
-                      </div>
-                      <p className={styles.mapNote}>
-                        Ubicación exacta de nuestras oficinas en Medellín
-                      </p>
-                    </div>
+                  <div className={styles.mapNote}>
+                    <p>📍 <strong>Nuestra ubicación:</strong> Carrera 65 #45-20 Interior 1906, Medellín</p>
+                    <p>📌 <em>Encuentra nuestro mapa de ubicación en el pie de página del sitio web.</em></p>
                   </div>
                 </div>
               </div>
@@ -357,7 +351,7 @@ ${formData.mensaje}
             <div className={styles.faqContent}>
               <h2 className={styles.faqTitle}>Preguntas Frecuentes</h2>
               <p className={styles.faqSubtitle}>
-                Resolvemos algunas dudas comunes sobre nuestros servicios
+                Resolvemos algunas dudas comunes al momento de contactarnos
               </p>
               
               <div className={styles.faqGrid}>
@@ -383,16 +377,13 @@ ${formData.mensaje}
               </div>
               
               <div className={styles.faqCta}>
-                <a href="/preguntas-frecuentes" className="btn btn-outline">
-                  Ver Todas las Preguntas Frecuentes
-                </a>
+                
               </div>
             </div>
           </div>
         </section>
 
       </main>
-      <Footer />
       <WhatsAppButton />
     </>
   );

@@ -115,6 +115,25 @@
   border-bottom: 2px solid var(--light-blue);
 }
 
+.serviceImage {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.servicePhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover .servicePhoto {
+  transform: scale(1.05);
+}
+
 .serviceIcon {
   font-size: 3rem;
   margin-bottom: 1rem;
