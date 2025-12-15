@@ -439,86 +439,6 @@
   font-size: 0.9rem;
 }
 
-/* Newsletter */
-.newsletter {
-  background: linear-gradient(135deg, var(--text-dark) 0%, #2c3e50 100%);
-  color: var(--white);
-}
-
-.newsletterContent {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.newsletterTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.newsletterSubtitle {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.newsletterForm {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.formGroup {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.newsletterInput {
-  flex: 1;
-  padding: 12px 16px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.newsletterInput::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.newsletterInput:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.newsletterButton {
-  padding: 12px 24px;
-  background: var(--primary-blue);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-.newsletterButton:hover {
-  background: var(--dark-blue);
-  transform: translateY(-2px);
-}
-
-.newsletterNote {
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin: 0;
-}
-
 /* CTA Section */
 .ctaSection {
   background: var(--white);
@@ -587,14 +507,6 @@
   
   .destacadoCard {
     margin-bottom: 2rem;
-  }
-  
-  .formGroup {
-    flex-direction: column;
-  }
-  
-  .newsletterButton {
-    width: 100%;
   }
   
   .ctaTitle {

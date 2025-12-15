@@ -68,10 +68,15 @@ export default function Nosotros() {
               </div>
               
               <div className={styles.historyImage}>
-                <div className={styles.imagePlaceholder}>
-                  <div className={styles.placeholderText}>
-                    Imagen de Nuestra Oficina
-                  </div>
+                <img 
+                  src="/home/oficina-medellin.jpg" 
+                  alt="Oficina de Ramírez y Asesores SAS en Medellín"
+                  loading="lazy"
+                />
+                <div className={styles.imageOverlay}>
+                  <p className={styles.imageCaption}>
+                    Nuestras instalaciones en Medellín, Antioquia
+                  </p>
                 </div>
               </div>
             </div>

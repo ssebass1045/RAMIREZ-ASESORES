@@ -123,19 +123,44 @@
   font-weight: 500;
 }
 
-.historyImage .imagePlaceholder {
-  height: 400px;
-  background: var(--light-blue);
+.historyImage {
+  position: relative;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--primary-blue);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.historyImage .placeholderText {
-  color: var(--primary-blue);
-  font-size: 1.1rem;
+.historyImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.historyImage:hover img {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.historyImage:hover .imageOverlay {
+  transform: translateY(0);
+}
+
+.imageCaption {
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
 /* Mission & Vision */

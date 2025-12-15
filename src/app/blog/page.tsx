@@ -283,40 +283,6 @@ export default function Blog() {
           </div>
         </section>
 
-        {/* Newsletter */}
-        <section className={`${styles.newsletter} section-padding`}>
-          <div className="container">
-            <div className={styles.newsletterContent}>
-              <div className={styles.newsletterText}>
-                <h2 className={styles.newsletterTitle}>
-                  Suscríbete a Nuestro Newsletter
-                </h2>
-                <p className={styles.newsletterSubtitle}>
-                  Recibe artículos exclusivos, actualizaciones normativas y consejos 
-                  prácticos directamente en tu correo.
-                </p>
-              </div>
-              
-              <form className={styles.newsletterForm}>
-                <div className={styles.formGroup}>
-                  <input
-                    type="email"
-                    placeholder="Tu correo electrónico"
-                    className={styles.newsletterInput}
-                    required
-                  />
-                  <button type="submit" className={styles.newsletterButton}>
-                    Suscribirse
-                  </button>
-                </div>
-                <p className={styles.newsletterNote}>
-                  Sin spam. Puedes darte de baja en cualquier momento.
-                </p>
-              </form>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className="container">

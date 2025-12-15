@@ -4,16 +4,56 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 15px 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 249, 250, 0.95) 50%,
+    rgba(232, 236, 255, 0.95) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 18px 0;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--primary-blue) 0%,
+    var(--dark-blue) 25%,
+    transparent 50%,
+    var(--light-blue) 75%,
+    var(--primary-blue) 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0.1;
+  z-index: -1;
+  animation: gradientShift 8s ease infinite;
 }
 
 .header.scrolled {
-  padding: 10px 0;
-  background: var(--white);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 12px 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(248, 249, 250, 0.98) 50%,
+    rgba(232, 236, 255, 0.98) 100%
+  );
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.header.scrolled::before {
+  opacity: 0.15;
+  animation-duration: 5s;
 }
 .nav {
   display: flex;
@@ -42,30 +82,58 @@
 .navLink {
   color: var(--gray-dark);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   position: relative;
-  padding: 8px 0;
-  transition: all 0.3s ease;
+  padding: 10px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(
+    to right,
+    var(--primary-blue),
+    var(--primary-blue) 50%,
+    var(--gray-dark) 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .navLink:hover {
-  color: var(--primary-blue);
+  background-position: 0%;
+  transform: translateY(-2px);
 }
 
-.navLink::after {
+.navLink::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 2px;
-  background: var(--primary-blue);
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, 
+    var(--primary-blue) 0%,
+    var(--dark-blue) 50%,
+    var(--primary-blue) 100%
+  );
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navLink:hover::after {
-  width: 100%;
+.navLink:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navLink.active {
+  background-position: 0%;
+}
+
+.navLink.active::before {
+  transform: scaleX(1);
 }
 
 .ctaDesktop {
@@ -83,12 +151,36 @@
   gap: 4px;
 }
 
+.mobileToggle {
+  position: relative;
+  z-index: 1002;
+}
+
 .mobileToggle span {
   width: 25px;
-  height: 2px;
-  background: var(--gray-dark);
-  transition: all 0.3s ease;
-  border-radius: 2px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--dark-blue));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 3px;
+  display: block;
+  transform-origin: center;
+}
+
+.mobileToggle:hover span {
+  background: linear-gradient(90deg, var(--dark-blue), var(--primary-blue));
+  transform: scale(1.1);
+}
+
+.mobileMenu.open .mobileToggle span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobileMenu.open .mobileToggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileMenu.open .mobileToggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .mobileMenu {
@@ -116,16 +208,89 @@
 .mobileLink {
   color: var(--gray-dark);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--light-blue);
-  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(232, 236, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobileLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(81, 112, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
 .mobileLink:hover {
   color: var(--primary-blue);
-  padding-left: 10px;
+  padding-left: 15px;
+  transform: translateX(5px);
+}
+
+.mobileLink:hover::before {
+  left: 100%;
+}
+
+.mobileLink.active {
+  color: var(--primary-blue);
+  background: linear-gradient(90deg, 
+    rgba(81, 112, 255, 0.1),
+    transparent
+  );
+}
+
+/* Animaciones para el header */
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.header {
+  animation: headerSlideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto de brillo en el logo */
+.logo {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: transform 0.6s ease;
+}
+
+.logo:hover::after {
+  transform: rotate(30deg) translateX(100%);
 }
 
 /* Responsive */
@@ -149,20 +314,51 @@
   }
 
   .mobileMenu .btn {
-    margin-top: 10px;
+    margin-top: 15px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+  }
+
+  .mobileMenu .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(81, 112, 255, 0.4);
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    padding: 12px 0;
+    padding: 15px 0;
+    animation-duration: 0.4s;
   }
 
   .header.scrolled {
-    padding: 8px 0;
+    padding: 10px 0;
   }
 
   .logo img {
-    width: 130px;
+    width: 140px;
   }
+
+  .mobileLink {
+    font-size: 1.1rem;
+    padding: 10px 0;
+  }
+}
+
+/* Efecto de partículas sutiles en el fondo del header */
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(81, 112, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(58, 91, 217, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -2;
+  opacity: 0.5;
+  pointer-events: none;
 }

@@ -1,3 +1,6 @@
+/* Importar animaciones globales */
+@import url('../styles/animations.css');
+
 /* Variables de colores corporativos */
 :root {
   --primary-blue: #5170ff;

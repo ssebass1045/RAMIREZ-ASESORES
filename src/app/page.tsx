@@ -3,6 +3,8 @@
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
+import VideoCarousel from '@/components/Hero/VideoCarousel';
+import TeamCarousel from '@/components/Team/TeamCarousel';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { services } from '@/data/services';
@@ -14,10 +16,11 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         
-        {/* Hero Section */}
+        {/* Hero Section Mejorada con Video Carousel */}
         <section className={styles.hero}>
           <div className="container">
             <div className={styles.heroContent}>
+              {/* Columna izquierda: Información con gradiente */}
               <div className={styles.heroText}>
                 <h1 className={`${styles.heroTitle} fade-in-up`}>
                   Expertos en <span className={styles.highlight}>Outsourcing Contable</span> en Medellín
@@ -44,17 +47,15 @@ export default function Home() {
                     <span className={styles.statLabel}>Clientes Satisfechos</span>
                   </div>
                   <div className={styles.stat}>
-                    <span className={styles.statNumber}>98%</span>
+                    <span className={styles.statNumber}>100%</span>
                     <span className={styles.statLabel}>Cumplimiento</span>
                   </div>
                 </div>
               </div>
-              <div className={styles.heroImage}>
-                <img 
-                  src="/home/hero-profesional.jpg" 
-                  alt="Profesionales de Ramírez y Asesores SAS"
-                  className={styles.heroPhoto}
-                />
+              
+              {/* Columna derecha: Video Carousel */}
+              <div className={styles.heroVideo}>
+                <VideoCarousel />
               </div>
             </div>
           </div>
@@ -189,79 +190,10 @@ export default function Home() {
         </section>
 
 
-        {/* Sección de Equipo Destacado */}
+        {/* Sección de Equipo Destacado - Reemplazada por Team Carousel */}
         <section className={`${styles.teamSection} section-padding`}>
           <div className="container">
-            <div className="text-center">
-              <h2 className={styles.sectionTitle}>
-                Nuestro <span className={styles.highlight}>Equipo</span> de Expertos
-              </h2>
-              <p className={styles.sectionSubtitle}>
-                Profesionales altamente calificados con años de experiencia
-              </p>
-            </div>
-            
-            <div className={styles.teamGrid}>
-              <div className={`card ${styles.teamCard}`}>
-                <div className={styles.teamImage}>
-                  <div className={styles.imageWrapper}>
-                    <img 
-                      src="/team/nestor-ramirez.png" 
-                      alt="Néstor Augusto Ramírez Ospina"
-                      className={styles.teamPhoto}
-                    />
-                  </div>
-                </div>
-                <div className={styles.teamInfo}>
-                  <h3>Néstor Augusto Ramírez Ospina</h3>
-                  <p className={styles.teamRole}>Gerente</p>
-                  <p className={styles.teamContact}>gerencia@ramirezasesores.co</p>
-                  <p className={styles.teamExperience}>Más de 15 años de experiencia en consultoría empresarial</p>
-                </div>
-              </div>
-              
-              <div className={`card ${styles.teamCard}`}>
-                <div className={styles.teamImage}>
-                  <div className={styles.imageWrapper}>
-                    <img 
-                      src="/team/viviana-vargas.png" 
-                      alt="Viviana María Vargas Franco"
-                      className={styles.teamPhoto}
-                    />
-                  </div>
-                </div>
-                <div className={styles.teamInfo}>
-                  <h3>Viviana María Vargas Franco</h3>
-                  <p className={styles.teamRole}>Coordinadora Administración y GH</p>
-                  <p className={styles.teamContact}>gestionhumana@ramirezasesores.co</p>
-                  <p className={styles.teamExperience}>Especialista en gestión humana y administración empresarial</p>
-                </div>
-              </div>
-              
-              <div className={`card ${styles.teamCard}`}>
-                <div className={styles.teamImage}>
-                  <div className={styles.imageWrapper}>
-                    <img 
-                      src="/team/maria-callejas.png" 
-                      alt="María Fernanda Callejas Saldarriaga"
-                      className={styles.teamPhoto}
-                    />
-                  </div>
-                </div>
-                <div className={styles.teamInfo}>
-                  <h3>María Fernanda Callejas Saldarriaga</h3>
-                  <p className={styles.teamRole}>Auditora y Revisora Fiscal</p>
-                  <p className={styles.teamContact}>revisoria@ramirezasesores.co</p>
-                  <p className={styles.teamExperience}>Experta en auditoría financiera y cumplimiento normativo</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className={styles.teamCta}>
-              <Link href="/equipo" className="btn btn-primary">
-                Ver Todo el Equipo
-              </Link>
-            </div>
+            <TeamCarousel />
           </div>
         </section>
 
@@ -330,8 +262,8 @@ export default function Home() {
                 </div>
                 <div className={styles.blogContent}>
                   <div className={styles.blogMeta}>
-                    <span className={styles.blogCategory}>Contabilidad</span>
-                    <span className={styles.blogDate}>15 Mar 2024</span>
+                    <span className={styles.blogCategory}>Outsourcing Contable</span>
+                    <span className={styles.blogDate}>15 Ene 2024</span>
                   </div>
                   <h3>5 Beneficios del Outsourcing Contable para PYMES en Medellín</h3>
                   <p>Descubre cómo el outsourcing contable puede optimizar costos y mejorar la eficiencia en tu empresa medellinense.</p>
@@ -348,20 +280,20 @@ export default function Home() {
                 <div className={styles.blogImage}>
                   <img 
                     src="/blog/normativa-tributaria.jpg" 
-                    alt="Novedades en Normativa Tributaria 2024 en Colombia"
+                    alt="Novedades en Normativa Tributaria y Laboral 2025 en Colombia"
                     className={styles.blogPhoto}
                   />
                 </div>
                 <div className={styles.blogContent}>
                   <div className={styles.blogMeta}>
-                    <span className={styles.blogCategory}>Normatividad</span>
-                    <span className={styles.blogDate}>28 Feb 2024</span>
+                    <span className={styles.blogCategory}>Actualidad Tributaria</span>
+                    <span className={styles.blogDate}>10 Ene 2025</span>
                   </div>
-                  <h3>Novedades en Normativa Tributaria 2024 en Colombia</h3>
-                  <p>Actualización completa de los cambios en la normativa tributaria colombiana para el año 2024.</p>
+                  <h3>Novedades en Normativa Tributaria y Laboral 2025 en Colombia</h3>
+                  <p>Guía esencial sobre la UVT 2025, reducción de jornada laboral y cambios en facturación electrónica para este año.</p>
                   <div className={styles.blogFooter}>
                     <span className={styles.blogAuthor}>Por: María Fernanda Callejas</span>
-                    <Link href="/blog/novedades-normativa-tributaria-2024-colombia" className={styles.blogLink}>
+                    <Link href="/blog/novedades-normativa-tributaria-2025-colombia" className={styles.blogLink}>
                       Leer más →
                     </Link>
                   </div>
@@ -379,7 +311,7 @@ export default function Home() {
                 <div className={styles.blogContent}>
                   <div className={styles.blogMeta}>
                     <span className={styles.blogCategory}>Revisoría Fiscal</span>
-                    <span className={styles.blogDate}>20 Ene 2024</span>
+                    <span className={styles.blogDate}>20 Feb 2025</span>
                   </div>
                   <h3>Ventajas de una Revisoría Fiscal Preventiva para tu Empresa</h3>
                   <p>Cómo una revisoría fiscal preventiva puede proteger los intereses de tu empresa en Medellín.</p>
