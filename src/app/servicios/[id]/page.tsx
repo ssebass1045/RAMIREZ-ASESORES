@@ -129,6 +129,21 @@ const serviciosAdicionales = {
       'Acompañamiento en cambios',
       'Verificación de resultados'
     ]
+  },
+  'servicios-especializados': {
+    casosUso: [
+      'Emprendedores y empresas nuevas',
+      'Empresas con saldos a favor o pagos en exceso',
+      'Empresas sujetas a fiscalización',
+      'Personas naturales con actividad empresarial'
+    ],
+    proceso: [
+      'Evaluación de necesidades específicas',
+      'Diseño de solución personalizada',
+      'Implementación de estrategias',
+      'Capacitación y acompañamiento',
+      'Seguimiento y ajustes continuos'
+    ]
   }
 };
 

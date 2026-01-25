@@ -25,7 +25,7 @@ const Header = () => {
     { href: '/equipo', label: 'Equipo' },
     { href: '/preguntas-frecuentes', label: 'FAQ' },
     { href: '/blog', label: 'Blog' },
-    { href: '/contacto', label: 'Contacto' },
+    { href: '/contacto', label: 'Contacto'},
   ];
 
   return (

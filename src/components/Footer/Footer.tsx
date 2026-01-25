@@ -14,6 +14,7 @@ const Footer = () => {
     { name: 'Consultoría Tributaria', href: '/servicios/consultoria-tributaria' },
     { name: 'Asesoría Financiera', href: '/servicios/asesoria-financiera' },
     { name: 'Consultoría Empresarial', href: '/servicios/consultoria-empresarial' },
+    { name: 'Servicios Especializados', href: '/servicios/servicios-especializados' },
   ];
 
   const quickLinks = [
@@ -36,10 +37,9 @@ const Footer = () => {
   };
 
   const socialMedia = [
-    { name: 'LinkedIn', icon: '🔗', href: 'https://linkedin.com/company/ramirez-asesores' },
-    { name: 'Facebook', icon: '📘', href: 'https://facebook.com/ramirezasesores' },
-    { name: 'Instagram', icon: '📷', href: 'https://instagram.com/ramirezasesores' },
-    { name: 'Twitter', icon: '🐦', href: 'https://twitter.com/ramirezasesores' },
+    { name: 'Facebook', icon: '/icons/facebook.svg', href: 'https://facebook.com/ramirezasesores' },
+    { name: 'Instagram', icon: '/icons/instagram.svg', href: 'https://instagram.com/ramirezasesores' },
+    { name: 'X (Twitter)', icon: '/icons/x.svg', href: 'https://twitter.com/ramirezasesores' },
   ];
 
   return (
@@ -146,8 +146,15 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className={styles.socialIcon}
                     aria-label={social.name}
+                    title={social.name}
                   >
-                    {social.icon}
+                    <Image
+                      src={social.icon}
+                      alt={`${social.name} de Ramírez y Asesores`}
+                      width={24}
+                      height={24}
+                      className={styles.socialIconImage}
+                    />
                   </a>
                 ))}
               </div>

@@ -270,6 +270,67 @@
   z-index: 3;
 }
 
+/* Badge especial para IA */
+.badgeIA {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+  animation: pulseBlue 2s infinite;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@keyframes pulseBlue {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
+  }
+}
+
+/* Efecto especial para la tarjeta de IA */
+.teamCard.iaCard {
+  border: 2px solid rgba(0, 198, 255, 0.3);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(232, 240, 255, 0.9));
+}
+
+.teamCard.iaCard:hover {
+  border-color: #00c6ff;
+  box-shadow: 0 20px 40px rgba(0, 198, 255, 0.2);
+}
+
+.teamCard.iaCard .memberPosition {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.teamCard.iaCard .especialidadTag {
+  background: rgba(0, 198, 255, 0.1);
+  color: #0072ff;
+  border: 1px solid rgba(0, 198, 255, 0.3);
+}
+
+.teamCard.iaCard:hover .especialidadTag {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border-color: transparent;
+}
+
 /* Información del miembro */
 .memberInfo {
   padding: 25px;

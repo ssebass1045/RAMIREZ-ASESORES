@@ -8,6 +8,18 @@ import styles from './TeamCarousel.module.css';
 // Datos del equipo (los mismos que en la página de equipo)
 const teamMembers = [
   {
+    id: 'ra-3000',
+    nombre: 'RA-3000',
+    cargo: 'Asistente Virtual Inteligente',
+    email: 'gestionhumana@ramirezasesores.co',
+    imagen: '/agenteia.png',
+    especialidades: ['IA Conversacional', 'Respuesta Inmediata 24/7', 'Agendamiento Automático', 'Multilenguaje'],
+    experiencia: 'Entrenado con 15+ años de experiencia contable de Ramírez y Asesores',
+    formacion: 'Inteligencia Artificial Especializada en Servicios Contables',
+    destacado: true,
+    esIA: true
+  },
+  {
     id: 'nestor-ramirez',
     nombre: 'Néstor Augusto Ramírez Ospina',
     cargo: 'Gerente',
@@ -239,7 +251,7 @@ const TeamCarousel = () => {
               className={styles.carouselItem}
               style={{ width: `${100 / visibleCount}%` }}
             >
-              <div className={`card ${styles.teamCard}`}>
+              <div className={`card ${styles.teamCard} ${member.esIA ? styles.iaCard : ''}`}>
                 {/* Imagen del miembro */}
                 <div className={styles.memberImage}>
                   <div className={styles.imageWrapper}>
@@ -273,9 +285,17 @@ const TeamCarousel = () => {
                     </div>
                     
                     {/* Badge para miembros destacados */}
-                    {member.destacado && (
+                    {member.destacado && !member.esIA && (
                       <div className={styles.badgeDestacado}>
                         <span>⭐ Líder</span>
+                      </div>
+                    )}
+                    
+                    {/* Badge especial para IA */}
+                    {member.esIA && (
+                      <div className={styles.badgeIA}>
+                        <span>🤖</span>
+                        <span>AGENTE IA</span>
                       </div>
                     )}
                   </div>

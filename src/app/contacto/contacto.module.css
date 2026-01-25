@@ -60,9 +60,39 @@
   line-height: 1.6;
 }
 
-/* Contact Grid */
+/* Contact Grid con Fondo Tecnológico */
 .contactGrid {
-  background: var(--white);
+  background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.98)), 
+              url('/fondo_contacto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactGrid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(81, 112, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 200, 255, 0.05) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 .gridContainer {
@@ -70,15 +100,21 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 /* Form Container */
 .formContainer {
-  background: var(--white);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--light-blue);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .formHeader {
@@ -92,6 +128,10 @@
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--text-dark);
+  background: linear-gradient(135deg, var(--primary-blue), #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .formSubtitle {
@@ -138,12 +178,13 @@
 .formSelect,
 .formTextarea {
   padding: 12px 16px;
-  border: 2px solid var(--light-blue);
-  border-radius: 8px;
+  border: 2px solid rgba(81, 112, 255, 0.3);
+  border-radius: 10px;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-dark);
 }
 
 .formInput:focus,
@@ -151,7 +192,10 @@
 .formTextarea:focus {
   outline: none;
   border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(81, 112, 255, 0.1);
+  box-shadow: 
+    0 0 0 3px rgba(81, 112, 255, 0.1),
+    0 0 20px rgba(81, 112, 255, 0.2);
+  background: white;
 }
 
 .formInput::placeholder,
@@ -179,14 +223,50 @@
 
 .submitButton {
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   font-size: 1.1rem;
   font-weight: 600;
+  background: linear-gradient(135deg, var(--primary-blue), #00c6ff);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(81, 112, 255, 0.4);
 }
 
 .submitButton:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitButton::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.6s;
+}
+
+.submitButton:hover::after {
+  transform: rotate(30deg) translate(20%, 20%);
 }
 
 .successMessage,
@@ -210,115 +290,362 @@
   border: 1px solid #f5c6cb;
 }
 
-/* Info Container */
-.infoContainer {
+/* Tarjeta de Presentación del Agente IA */
+.aiPresentationCard {
   position: sticky;
   top: 100px;
 }
 
-.infoCard {
-  background: var(--white);
-  border-radius: 12px;
+.aiCardContent {
+  background: linear-gradient(145deg, rgba(20, 30, 48, 0.95), rgba(10, 20, 40, 0.98));
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--light-blue);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(81, 112, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(81, 112, 255, 0.3);
+  overflow: hidden;
+  position: relative;
 }
 
-.infoTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
+.aiCardContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #00c6ff, var(--primary-blue), #00c6ff);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Imagen del Agente IA */
+.aiImageContainer {
+  text-align: center;
   margin-bottom: 2rem;
-  color: var(--text-dark);
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid var(--light-blue);
-}
-
-.contactItems {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.aiImageWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.aiImage {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 20px;
+  border: 3px solid rgba(81, 112, 255, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(81, 112, 255, 0.3);
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Media Queries para mantener consistencia en móvil */
+@media (max-width: 768px) {
+  .aiBadge {
+    flex-direction: column;
+    padding: 0.75rem 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .aiIcon {
+    font-size: 1.5rem;
+  }
+  
+  .aiLabel {
+    font-size: 0.75rem;
+  }
+}
+
+
+
+.aiImage:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(81, 112, 255, 0.4);
+}
+
+.aiImageGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(81, 112, 255, 0.2) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: 1;
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Badge del Agente IA */
+.aiBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(81, 112, 255, 0.2), rgba(0, 198, 255, 0.2));
+  color: #00c6ff;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(81, 112, 255, 0.3);
+  backdrop-filter: blur(10px);
+  margin-top: 1.5rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aiIcon {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+.aiLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Información del Agente */
+.aiInfo {
+  color: var(--white);
+}
+
+.aiTitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.aiTitleMain {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00c6ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.aiTitleSub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+/* Estadísticas del Agente */
+.aiStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
-.contactItem {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.contactIcon {
-  font-size: 1.5rem;
-  color: var(--primary-blue);
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-}
-
-.contactItem h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: var(--text-dark);
-}
-
-.contactItem p {
-  color: var(--gray-medium);
-  margin: 0;
-  line-height: 1.5;
-  font-size: 0.95rem;
-}
-
-.whatsappCta {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+.aiStat {
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  color: var(--white);
-}
-
-.contactWhatsappButton {
-  background: var(--white);
-  color: #25D366;
-  border: none;
-  font-weight: 600;
-  padding: 14px 28px;
-  margin-bottom: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   transition: all 0.3s ease;
 }
 
-.contactWhatsappButton:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
+.aiStat:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  border-color: rgba(81, 112, 255, 0.3);
 }
 
-.whatsappNote {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin: 0;
+.statIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
 }
 
-.mapNote {
-  margin-top: 2rem;
+.statContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00c6ff;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+/* Descripción y Capacidades */
+.aiDescription {
+  margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--light-blue);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   border-left: 4px solid var(--primary-blue);
 }
 
-.mapNote p {
-  margin: 0.5rem 0;
-  color: var(--gray-medium);
+.aiDescription p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.aiDescription strong {
+  color: #00c6ff;
+}
+
+.aiCapabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.capability {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.capability:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.capabilityIcon {
+  font-size: 1.2rem;
+  color: #00c6ff;
+  flex-shrink: 0;
+}
+
+.capability span {
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
+}
+
+/* CTA del Agente IA */
+.aiCta {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.aiWhatsappButton {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border: none;
+  border-radius: 12px;
+  padding: 1.25rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.aiWhatsappButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+}
+
+.aiWhatsappButton:active {
+  transform: translateY(-1px);
+}
+
+.aiCtaNote {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
   line-height: 1.5;
 }
 
-.mapNote strong {
-  color: var(--text-dark);
+/* Nota Técnica del Agente IA */
+.aiTechNote {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(81, 112, 255, 0.3);
 }
 
-.mapNote em {
-  color: var(--gray-medium);
-  font-size: 0.9rem;
+.aiTechNote p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.techIcon {
+  font-size: 1.2rem;
+  color: #00c6ff;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.aiTechNote strong {
+  color: #00c6ff;
 }
 
 /* FAQ Preview */
@@ -387,6 +714,21 @@
   margin-top: 2rem;
 }
 
+.faqFinalNote {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ffd700;
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.faqFinalNote strong {
+  color: var(--primary-blue);
+}
+
 /* Responsive */
 @media (max-width: 968px) {
   .gridContainer {
@@ -402,7 +744,7 @@
     font-size: 2rem;
   }
   
-  .infoContainer {
+  .aiPresentationCard {
     position: static;
   }
 }
@@ -426,7 +768,7 @@
   }
   
   .formContainer,
-  .infoCard {
+  .aiCardContent {
     padding: 2rem 1.5rem;
   }
   
@@ -437,6 +779,24 @@
   .faqTitle {
     font-size: 1.8rem;
   }
+  
+  .aiImage {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .aiImageGlow {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .aiStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .aiTitleMain {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -445,20 +805,27 @@
   }
   
   .formTitle,
-  .infoTitle {
+  .aiTitleMain {
     font-size: 1.5rem;
   }
   
-  .contactItem {
-    flex-direction: column;
-    gap: 0.5rem;
+  .aiImage {
+    width: 200px;
+    height: 200px;
   }
   
-  .contactIcon {
-    margin-top: 0;
+  .aiImageGlow {
+    width: 240px;
+    height: 240px;
   }
   
-  .whatsappCta {
-    padding: 1.5rem;
+  .aiBadge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .aiWhatsappButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 }

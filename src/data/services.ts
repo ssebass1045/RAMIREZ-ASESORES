@@ -172,5 +172,27 @@ export const services: Service[] = [
       'Reducción de riesgos legales y regulatorios',
       'Preparación para auditorías y visitas oficiales'
     ]
+  },
+  {
+    id: 'servicios-especializados',
+    title: 'Servicios Especializados',
+    description: 'Soluciones personalizadas para necesidades específicas de tu empresa, incluyendo apertura de empresas, recuperación de contabilidades y preparación para fiscalizaciones.',
+    icon: '⭐',
+    image: '/services/servicios-especializados.jpg',
+    features: [
+      'Acompañamiento en apertura de empresas y estructuración contable inicial',
+      'Preparación, procedimientos y solicitud de saldos a favor, pagos de lo no debido o en exceso',
+      'Recuperación y organización contable atrasada',
+      'Preparación para visitas de DIAN, SuperSociedades, UGPP o Min Trabajo'
+    ],
+    benefits: [
+      'Estructura contable y tributaria correcta desde el primer día',
+      'Reducción de riesgos por errores en inscripción de RUT',
+      'Optimización de esquemas fiscales correctos y proyección de impuestos',
+      'Soporte técnico en manejos contables y planeaciones financieras',
+      'Disminución de contingencias frente a procesos DIAN, UGPP y demás entidades',
+      'Preparación adecuada en procesos de fiscalización o auditorías externas',
+      'Reducción significativa en riesgos sancionatorios y contingencias legales'
+    ]
   }
 ];

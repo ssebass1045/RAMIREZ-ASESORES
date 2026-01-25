@@ -159,7 +159,7 @@ const WhatsAppButton = () => {
         <div className={styles.whatsappButton} onClick={() => setShowForm(true)}>
           <div className={styles.whatsappIconContainer}>
             <img 
-              src="/icons/WhatsApp.svg.webp" 
+              src="/icons/WhatsApp.svg.webp"
               alt="WhatsApp"
               className={styles.whatsappIcon}
             />

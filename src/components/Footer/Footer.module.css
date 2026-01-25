@@ -32,12 +32,14 @@
 }
 
 .logo {
-  filter: brightness(0) invert(1);
-  transition: opacity 0.3s ease;
+  filter: brightness(1.1) contrast(0.9) saturate(0.8);
+  transition: all 0.3s ease;
+  opacity: 0.95;
 }
 
 .logo:hover {
-  opacity: 0.9;
+  filter: brightness(1.2) contrast(1) saturate(1);
+  opacity: 1;
 }
 
 .companyDescription {
@@ -158,18 +160,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  font-size: 1.2rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .socialIcon:hover {
   background: var(--primary-blue);
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(81, 112, 255, 0.4);
+  border-color: var(--primary-blue);
+}
+
+.socialIcon:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.socialIconImage {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover .socialIconImage {
+  filter: brightness(0) invert(1) sepia(100%) saturate(500%) 
+          hue-rotate(210deg) brightness(0.9);
+  transform: scale(1.1);
 }
 
 /* Footer Bottom */

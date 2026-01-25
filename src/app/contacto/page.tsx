@@ -32,11 +32,6 @@ export default function Contacto() {
   ];
 
   const contactInfo = {
-    direccion: 'Carrera 65 #45-20 Interior 1906, Medellín, Colombia',
-    telefono: '+57 (4) 322 1158',
-    celular: '+57 321 582 9812',
-    email: 'gerencia@ramirezasesores.co',
-    horario: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573215829812'
   };
 
@@ -132,7 +127,7 @@ ${formData.mensaje}
           </div>
         </section>
 
-        {/* Contact Grid */}
+        {/* Contact Grid con Fondo Tecnológico */}
         <section className={`${styles.contactGrid} section-padding`}>
           <div className="container">
             <div className={styles.gridContainer}>
@@ -142,7 +137,7 @@ ${formData.mensaje}
                 <div className={styles.formHeader}>
                   <h2 className={styles.formTitle}>Solicita tu Consultoría Gratuita</h2>
                   <p className={styles.formSubtitle}>
-                    Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
+                    Completa el formulario y nuestro agente IA te contactará en segundos
                   </p>
                 </div>
 
@@ -257,13 +252,13 @@ ${formData.mensaje}
                       className={`btn btn-primary ${styles.submitButton}`}
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                      {isSubmitting ? 'Enviando...' : 'Enviar Solicitud al Agente IA'}
                     </button>
                   </div>
 
                   {submitStatus === 'success' && (
                     <div className={styles.successMessage}>
-                      ✅ ¡Gracias por contactarnos! Te responderemos en menos de 24 horas.
+                      ✅ ¡Gracias por contactarnos! Nuestro agente IA te responderá en segundos.
                     </div>
                   )}
 
@@ -275,68 +270,107 @@ ${formData.mensaje}
                 </form>
               </div>
 
-              {/* Información de Contacto */}
-              <div className={styles.infoContainer}>
-                <div className={styles.infoCard}>
-                  <h3 className={styles.infoTitle}>Información de Contacto</h3>
+              {/* Tarjeta de Presentación del Agente IA */}
+              <div className={styles.aiPresentationCard}>
+                <div className={styles.aiCardContent}>
+                  {/* Imagen del Agente IA */}
+                  <div className={styles.aiImageContainer}>
+                    <div className={styles.aiImageWrapper}>
+                      
+                      <img
+                        src="/agenteia.png"
+                        alt="Agente IA de Ramírez y Asesores - Robot profesional con corbata azul"
+                        className={styles.aiImage}
+                        />
+
+                      <div className={styles.aiImageGlow}></div>
+                    </div>
+                    <div className={styles.aiBadge}>
+                      <span className={styles.aiIcon}>🤖</span>
+                      <span className={styles.aiLabel}>AGENTE DE IA OFICIAL</span>
+                    </div>
+                  </div>
                   
-                  <div className={styles.contactItems}>
-                    <div className={styles.contactItem}>
-                      <div className={styles.contactIcon}>📍</div>
-                      <div>
-                        <h4>Dirección</h4>
-                        <p>{contactInfo.direccion}</p>
+                  {/* Información del Agente */}
+                  <div className={styles.aiInfo}>
+                    <h3 className={styles.aiTitle}>
+                      <span className={styles.aiTitleMain}>RA-3000</span>
+                      <span className={styles.aiTitleSub}>Asistente Virtual Inteligente</span>
+                    </h3>
+                    
+                    <div className={styles.aiStats}>
+                      <div className={styles.aiStat}>
+                        <div className={styles.statIcon}>⚡</div>
+                        <div className={styles.statContent}>
+                          <div className={styles.statValue}>0.8s</div>
+                          <div className={styles.statLabel}>Respuesta promedio</div>
+                        </div>
+                      </div>
+                      
+                      <div className={styles.aiStat}>
+                        <div className={styles.statIcon}>📊</div>
+                        <div className={styles.statContent}>
+                          <div className={styles.statValue}>15+ años</div>
+                          <div className={styles.statLabel}>Experiencia integrada</div>
+                        </div>
+                      </div>
+                      
+                      <div className={styles.aiStat}>
+                        <div className={styles.statIcon}>🌐</div>
+                        <div className={styles.statContent}>
+                          <div className={styles.statValue}>4 idiomas</div>
+                          <div className={styles.statLabel}>Español, Inglés, Portugués, francés</div>
+                        </div>
                       </div>
                     </div>
-
-                    <div className={styles.contactItem}>
-                      <div className={styles.contactIcon}>📞</div>
-                      <div>
-                        <h4>Teléfono Fijo</h4>
-                        <p>{contactInfo.telefono}</p>
+                    
+                    <div className={styles.aiDescription}>
+                      <p>
+                        Soy el asistente virtual oficial de <strong>Ramírez y Asesores SAS</strong>. 
+                        Estoy entrenado con toda nuestra experiencia de 15+ años en servicios contables 
+                        y puedo ayudarte con:
+                      </p>
+                    </div>
+                    
+                    <div className={styles.aiCapabilities}>
+                      <div className={styles.capability}>
+                        <span className={styles.capabilityIcon}>✅</span>
+                        <span>Consultas inmediatas 24/7</span>
+                      </div>
+                      <div className={styles.capability}>
+                        <span className={styles.capabilityIcon}>✅</span>
+                        <span>Agendamiento automático de reuniones</span>
+                      </div>
+                      <div className={styles.capability}>
+                        <span className={styles.capabilityIcon}>✅</span>
+                        <span>Conexión directa con especialistas</span>
+                      </div>
+                      <div className={styles.capability}>
+                        <span className={styles.capabilityIcon}>✅</span>
+                        <span>Análisis preliminar de necesidades</span>
                       </div>
                     </div>
-
-                    <div className={styles.contactItem}>
-                      <div className={styles.contactIcon}>📱</div>
-                      <div>
-                        <h4>Celular / WhatsApp</h4>
-                        <p>{contactInfo.celular}</p>
-                      </div>
+                    
+                    <div className={styles.aiCta}>
+                      <button
+                        onClick={handleWhatsAppClick}
+                        className={`btn btn-primary ${styles.aiWhatsappButton}`}
+                      >
+                        <span className={styles.buttonIcon}>💬</span>
+                        <span className={styles.buttonText}>Chatear directamente con RA-3000</span>
+                      </button>
+                      <p className={styles.aiCtaNote}>
+                        Conecta al instante con nuestro agente IA por WhatsApp
+                      </p>
                     </div>
-
-                    <div className={styles.contactItem}>
-                      <div className={styles.contactIcon}>✉️</div>
-                      <div>
-                        <h4>Correo Electrónico</h4>
-                        <p>{contactInfo.email}</p>
-                      </div>
+                    
+                    <div className={styles.aiTechNote}>
+                      <p>
+                        <span className={styles.techIcon}>🔒</span>
+                        <strong>Seguridad garantizada:</strong> Todas las conversaciones están encriptadas 
+                        y protegidas por nuestros sistemas de última generación.
+                      </p>
                     </div>
-
-                    <div className={styles.contactItem}>
-                      <div className={styles.contactIcon}>⏰</div>
-                      <div>
-                        <h4>Horario de Atención</h4>
-                        <p>{contactInfo.horario}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.whatsappCta}>
-                    <button
-                      onClick={handleWhatsAppClick}
-                      className={`btn btn-primary ${styles.contactWhatsappButton}`}
-                    >
-                      💬 Chatear por WhatsApp
-                    </button>
-                    <p className={styles.whatsappNote}>
-                      Resolvemos tus dudas al instante
-                    </p>
-                  </div>
-
-                  <div className={styles.mapNote}>
-                    <p>📍 <strong>Nuestra ubicación:</strong> Carrera 65 #45-20 Interior 1906, Medellín</p>
-                    <p>📌 <em>Encuentra nuestro mapa de ubicación en el pie de página del sitio web.</em></p>
                   </div>
                 </div>
               </div>
@@ -345,39 +379,46 @@ ${formData.mensaje}
           </div>
         </section>
 
-        {/* FAQ Preview */}
+        {/* FAQ Preview - Actualizado para IA */}
         <section className={`${styles.faqPreview} section-padding`}>
           <div className="container">
             <div className={styles.faqContent}>
-              <h2 className={styles.faqTitle}>Preguntas Frecuentes</h2>
+              <h2 className={styles.faqTitle}>Preguntas Frecuentes sobre nuestro Agente IA</h2>
               <p className={styles.faqSubtitle}>
-                Resolvemos algunas dudas comunes al momento de contactarnos
+                Resolvemos dudas comunes sobre nuestro asistente virtual de WhatsApp
               </p>
               
               <div className={styles.faqGrid}>
                 <div className={styles.faqItem}>
-                  <h4>¿Cuánto tiempo toma obtener una cotización?</h4>
-                  <p>Te enviamos una cotización preliminar en menos de 24 horas hábiles.</p>
+                  <h4>¿Cómo funciona el agente de IA?</h4>
+                  <p>Nuestro asistente virtual analiza tu consulta, responde preguntas frecuentes, 
+                  agenda reuniones y te conecta con el especialista adecuado en tiempo real.</p>
                 </div>
                 
                 <div className={styles.faqItem}>
-                  <h4>¿Ofrecen servicios para empresas pequeñas?</h4>
-                  <p>Sí, tenemos planes adaptados a empresas de todos los tamaños.</p>
+                  <h4>¿Puede el agente IA resolver consultas complejas?</h4>
+                  <p>Sí, nuestro agente está entrenado con toda nuestra experiencia de 15+ años 
+                  y puede escalar consultas complejas a nuestros asesores humanos especializados.</p>
                 </div>
                 
                 <div className={styles.faqItem}>
-                  <h4>¿Trabajan en toda Medellín?</h4>
-                  <p>Atendemos empresas en toda el área metropolitana de Medellín.</p>
+                  <h4>¿Qué horario atiende el agente IA?</h4>
+                  <p>Está disponible 24/7 para consultas iniciales. Las reuniones con especialistas 
+                  se agendan dentro de nuestro horario laboral (Lunes a Viernes 8AM-6PM).</p>
                 </div>
                 
                 <div className={styles.faqItem}>
-                  <h4>¿Cómo agendo una consultoría gratuita?</h4>
-                  <p>Completa el formulario o contáctanos por WhatsApp para agendar.</p>
+                  <h4>¿Cómo agendo una consultoría gratuita con el agente IA?</h4>
+                  <p>Completa el formulario o chatea directamente por WhatsApp. El agente te guiará 
+                  para agendar una consultoría gratuita con el área especializada.</p>
                 </div>
               </div>
               
               <div className={styles.faqCta}>
-                
+                <p className={styles.faqFinalNote}>
+                  💡 <strong>Tip:</strong> Nuestro agente IA también puede ayudarte con información sobre 
+                  servicios, precios, documentación requerida y procesos específicos de tu empresa.
+                </p>
               </div>
             </div>
           </div>
