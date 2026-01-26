@@ -1,12 +1,16 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
 import styles from './servicio.module.css';
 import Link from 'next/link';
 import { services } from '@/data/services';
+
+// Generar parámetros estáticos para exportación
+export function generateStaticParams() {
+  return services.map((service) => ({
+    id: service.id,
+  }));
+}
 
 // Datos adicionales para casos de uso y procesos
 const serviciosAdicionales = {
@@ -147,9 +151,8 @@ const serviciosAdicionales = {
   }
 };
 
-export default function ServicioPage() {
-  const params = useParams();
-  const servicioId = params.id as string;
+export default function ServicioPage({ params }: { params: { id: string } }) {
+  const servicioId = params.id;
   
   // Buscar el servicio en los datos importados
   const servicioBase = services.find(s => s.id === servicioId);

@@ -1,12 +1,16 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
 import styles from './articulo.module.css';
 import Link from 'next/link';
 import { blogPosts } from '@/data/blog';
+
+// Generar parámetros estáticos para exportación
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    id: post.id,
+  }));
+}
 
 // Función para formatear fecha
 const formatDate = (dateString: string) => {
@@ -30,9 +34,8 @@ const getAuthorName = (author: string) => {
   return authorMap[author] || { name: author, role: 'Experto en Contabilidad y Finanzas' };
 };
 
-export default function ArticuloPage() {
-  const params = useParams();
-  const articuloId = params.id as string;
+export default function ArticuloPage({ params }: { params: { id: string } }) {
+  const articuloId = params.id;
   
   const articulo = blogPosts.find(a => a.id === articuloId);
   
