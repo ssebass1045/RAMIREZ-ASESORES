@@ -12,12 +12,12 @@ const equipo = [
   {
     id: 'nestor-ramirez',
     nombre: 'Néstor Augusto Ramírez Ospina',
-    cargo: 'Gerente',
+    cargo: 'CEO',
     email: 'gerencia@ramirezasesores.co',
     imagen: '/team/nestor-ramirez.png',
     especialidades: ['Estrategia Empresarial', 'Gestión Financiera', 'Desarrollo Organizacional'],
-    experiencia: 'Más de 15 años de experiencia en dirección de empresas y consultoría financiera',
-    formacion: 'Especialista en Finanzas y Gestión Empresarial',
+    experiencia: 'Más de 20 años de experiencia en dirección de empresas y consultoría financiera',
+    formacion: 'Contador publico, Abogado, Especialista en legislación aduanera',
     destacado: true
   },
   {
