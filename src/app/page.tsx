@@ -64,7 +64,7 @@ export default function Home() {
                 </div>
                 <div className={styles.heroStats}>
                   <div className={styles.stat}>
-                    <AnimatedCounter end={15} suffix="+" className={styles.statNumber} />
+                    <AnimatedCounter end={20} suffix="+" className={styles.statNumber} />
                     <span className={styles.statLabel}>Años de Experiencia</span>
                   </div>
                   <div className={styles.stat}>
