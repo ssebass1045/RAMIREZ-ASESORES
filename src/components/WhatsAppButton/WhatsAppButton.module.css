@@ -21,24 +21,89 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   border: 3px solid white;
-  animation: bounce 2s infinite;
+  animation: whatsappPulse 2s ease-in-out infinite;
+}
+
+.whatsappButton::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.3);
+  animation: whatsappRing 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+.whatsappButton::after {
+  content: '¿Necesitas ayuda?';
+  position: absolute;
+  right: calc(100% + 15px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: #128C7E;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  animation: tooltipShow 6s ease-in-out infinite;
 }
 
 .whatsappButton:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
   box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
   animation: none;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
+.whatsappButton:hover::before {
+  animation: none;
+  opacity: 0;
+}
+
+.whatsappButton:hover::after {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes whatsappPulse {
+  0%, 100% {
+    transform: scale(1);
   }
-  40% {
-    transform: translateY(-15px);
+  50% {
+    transform: scale(1.08);
   }
-  60% {
-    transform: translateY(-7px);
+}
+
+@keyframes whatsappRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes tooltipShow {
+  0%, 70%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(10px);
+  }
+  80%, 95% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
   }
 }
 

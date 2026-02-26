@@ -13,7 +13,7 @@ const WhatsAppButton = () => {
     mensaje: ''
   });
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573215829812';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573219468986';
   
   const servicios = [
     'Outsourcing Contable',
