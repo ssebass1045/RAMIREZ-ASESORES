@@ -23,11 +23,26 @@ export default function Home() {
               {/* Columna izquierda: Información con gradiente */}
               <div className={styles.heroText}>
                 <h1 className={`${styles.heroTitle} fade-in-up`}>
-                  Expertos en <span className={styles.highlight}>Outsourcing Contable</span> en Medellín
+                  Expertos en <span className={styles.highlight}>Soluciones profesionales: </span>
                 </h1>
                 <p className={`${styles.heroSubtitle} fade-in-up`}>
-                  Más de 15 años acompañando empresas con servicios integrales de contabilidad, 
-                  auditoría, revisoría fiscal y asesorías jurídicas en Medellín y Antioquia.
+                  <ul>
+                    <li>
+                  ✅ Contabilidad por Outsourcing.
+                    </li>
+                  <li>
+                  ✅ Revisoría Fiscal.
+                  </li>
+                  <li>
+                  ✅ Auditoría Financiera.
+                  </li>
+                  <li>
+                  ✅ Aduanera.
+                  </li>
+                  <li>
+                  ✅ Cambiaria
+                  </li>
+                  </ul>
                 </p>
                 <div className={`${styles.heroButtons} fade-in-up`}>
                   <Link href="/servicios" className="btn btn-primary">
@@ -114,7 +129,7 @@ export default function Home() {
             <div className={styles.whyUsContent}>
               <div className={styles.whyUsText}>
                 <h2 className={styles.sectionTitle}>
-                  ¿Por qué elegir <span className={styles.highlight}>Ramírez y Asesores</span>?
+                  ¿Por qué elegir <span className={styles.highlight}>Ramírez Asesores</span>?
                 </h2>
                 <p className={styles.whyUsDescription}>
                   Más de 15 años de experiencia nos respaldan. Somos tu aliado estratégico 

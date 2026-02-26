@@ -73,7 +73,6 @@ export default function Servicios() {
                     </div>
                     <div className={styles.serviceIcon}>{servicio.icon}</div>
                     <h3 className={styles.serviceTitle}>{servicio.title}</h3>
-                    <p className={styles.serviceShortDesc}>{servicio.shortDesc}</p>
                   </div>
                   
                   <div className={styles.serviceBody}>

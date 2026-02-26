@@ -266,32 +266,6 @@
   animation: headerSlideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Efecto de brillo en el logo */
-.logo {
-  position: relative;
-  overflow: hidden;
-}
-
-.logo::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transform: rotate(30deg);
-  transition: transform 0.6s ease;
-}
-
-.logo:hover::after {
-  transform: rotate(30deg) translateX(100%);
-}
 
 /* Responsive */
 @media (max-width: 1024px) {

@@ -34,8 +34,8 @@ const getAuthorName = (author: string) => {
   return authorMap[author] || { name: author, role: 'Experto en Contabilidad y Finanzas' };
 };
 
-export default function ArticuloPage({ params }: { params: { id: string } }) {
-  const articuloId = params.id;
+export default async function ArticuloPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id: articuloId } = await params;
   
   const articulo = blogPosts.find(a => a.id === articuloId);
   

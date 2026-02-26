@@ -116,6 +116,12 @@ const areasEspecializadas = [
     descripcion: 'Profesionales en administración, procesos y desarrollo organizacional',
     icono: '🏢',
     color: '#FFA726'
+  },
+  {
+    area: 'Aduanero y Cambiario',
+    descripcion: 'Especialistas en régimen aduanero, operaciones de comercio exterior y cumplimiento cambiario',
+    icono: '🌐',
+    color: '#7E57C2'
   }
 ];
 
@@ -145,7 +151,7 @@ export default function Equipo() {
                   <span className={styles.statLabel}>Especialistas</span>
                 </div>
                 <div className={styles.stat}>
-                  <span className={styles.statNumber}>4</span>
+                  <span className={styles.statNumber}>5</span>
                   <span className={styles.statLabel}>Áreas Clave</span>
                 </div>
               </div>

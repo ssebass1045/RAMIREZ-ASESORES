@@ -102,7 +102,8 @@ export const services: Service[] = [
       'Validación de registros, declaraciones y formularios cambiarios',
       'Identificación de riesgos de sanciones',
       'Asesoría en respuestas a requerimientos administrativos',
-      'Auditoría a inversiones internacionales'
+      'Auditoría a inversiones internacionales',
+      'Auditoría y acompañamiento en cuentas de compensación'
     ],
     benefits: [
       'Cumplimiento normativo cambiario',

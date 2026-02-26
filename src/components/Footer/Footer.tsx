@@ -32,8 +32,8 @@ const Footer = () => {
     address: 'Carrera 65 #45-20 Interior 1906, Medellín, Colombia',
     phone: '+57 (4) 322 1158',
     mobile: '+57 321 582 9812',
-    email: 'gerencia@ramirezasesores.co',
-    hours: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
+    email: 'contabilidad@ramirezasesores.co',
+    hours: 'Lunes a Viernes: 8:00 AM - 5:00 PM',
   };
 
   const socialMedia = [

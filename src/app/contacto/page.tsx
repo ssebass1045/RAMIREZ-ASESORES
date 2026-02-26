@@ -404,7 +404,7 @@ ${formData.mensaje}
                 <div className={styles.faqItem}>
                   <h4>¿Qué horario atiende el agente IA?</h4>
                   <p>Está disponible 24/7 para consultas iniciales. Las reuniones con especialistas 
-                  se agendan dentro de nuestro horario laboral (Lunes a Viernes 8AM-6PM).</p>
+                  se agendan dentro de nuestro horario laboral (Lunes a Viernes 8AM-5PM).</p>
                 </div>
                 
                 <div className={styles.faqItem}>

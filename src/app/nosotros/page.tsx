@@ -37,7 +37,7 @@ export default function Nosotros() {
               <div className={styles.historyText}>
                 <h2 className={styles.sectionTitle}>Nuestra Trayectoria</h2>
                 <p className={styles.historyDescription}>
-                  En <strong>Ramírez y Asesores SAS</strong> hemos dedicado más de 15 años 
+                  En <strong>Ramírez Asesores SAS</strong> hemos dedicado más de 15 años 
                   a brindar soluciones integrales en outsourcing contable y administrativo, 
                   revisoría fiscal, auditoría y asesorías jurídicas, tributarias, aduaneras y cambiarias.
                 </p>
@@ -49,7 +49,7 @@ export default function Nosotros() {
                 
                 <div className={styles.statsGrid}>
                   <div className={styles.statItem}>
-                    <span className={styles.statNumber}>2008</span>
+                    <span className={styles.statNumber}>2009</span>
                     <span className={styles.statLabel}>Año de Fundación</span>
                   </div>
                   <div className={styles.statItem}>

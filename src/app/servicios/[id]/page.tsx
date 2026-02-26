@@ -31,10 +31,10 @@ const serviciosAdicionales = {
   },
   'revisoria-fiscal': {
     casosUso: [
-      'Sociedades por acciones obligadas por ley',
-      'Empresas con activos superiores a 5.000 salarios mínimos',
+      'Sociedades anónimas',
+      'Empresas con ingresos superiores a 3.000 Salarios mínimos o activos superiores a 5.000 salarios mínimos.',
       'Compañías que buscan transparencia para inversionistas',
-      'Empresas en procesos de financiación'
+
     ],
     proceso: [
       'Evaluación de obligatoriedad',
@@ -151,8 +151,8 @@ const serviciosAdicionales = {
   }
 };
 
-export default function ServicioPage({ params }: { params: { id: string } }) {
-  const servicioId = params.id;
+export default async function ServicioPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id: servicioId } = await params;
   
   // Buscar el servicio en los datos importados
   const servicioBase = services.find(s => s.id === servicioId);
@@ -189,33 +189,9 @@ export default function ServicioPage({ params }: { params: { id: string } }) {
   // Combinar datos del servicio
   const servicio = {
     ...servicioBase,
-    shortDesc: servicioBase.description.substring(0, 100) + '...',
     casosUso: adicionales.casosUso,
     proceso: adicionales.proceso
   };
-  
-  if (!servicio) {
-    return (
-      <>
-        <Header />
-        <main className={styles.main}>
-          <section className={styles.notFound}>
-            <div className="container">
-              <div className={styles.notFoundContent}>
-                <h1>Servicio no encontrado</h1>
-                <p>El servicio que buscas no existe o ha sido movido.</p>
-                <Link href="/servicios" className="btn btn-primary">
-                  Ver Todos los Servicios
-                </Link>
-              </div>
-            </div>
-          </section>
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </>
-    );
-  }
 
   return (
     <>
@@ -235,7 +211,6 @@ export default function ServicioPage({ params }: { params: { id: string } }) {
                 <div className={styles.heroIcon}>{servicio.icon}</div>
               </div>
               <h1 className={styles.heroTitle}>{servicio.title}</h1>
-              <p className={styles.heroSubtitle}>{servicio.shortDesc}</p>
               <div className={styles.heroButtons}>
                 <Link href="/contacto" className="btn btn-primary">
                   Solicitar Este Servicio
