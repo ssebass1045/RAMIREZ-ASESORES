@@ -15,8 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ramírez y Asesores SAS - Outsourcing Contable en Medellín",
-  description: "Más de 15 años de experiencia en outsourcing contable, auditoría, revisoría fiscal y asesorías jurídicas en Medellín. Servicios profesionales de contabilidad, aduanera y consultoría tributaria.",
-  keywords: "outsourcing contable Medellín, auditoría fiscal Antioquia, revisoría fiscal, asesoría aduanera, consultoría tributaria, contabilidad empresas Medellín",
+  description:
+    "Más de 20 años de experiencia en outsourcing contable, auditoría, revisoría fiscal y asesorías jurídicas en Medellín. Servicios profesionales de contabilidad, aduanera y consultoría tributaria.",
+  keywords:
+    "outsourcing contable Medellín, auditoría fiscal Antioquia, revisoría fiscal, asesoría aduanera, consultoría tributaria, contabilidad empresas Medellín",
   authors: [{ name: "Ramírez y Asesores SAS" }],
   creator: "Ramírez y Asesores SAS",
   publisher: "Ramírez y Asesores SAS",
@@ -25,17 +27,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://ramirezasesores.co'),
+  metadataBase: new URL("https://ramirezasesores.co"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
     title: "Ramírez y Asesores SAS - Expertos Contables en Medellín",
-    description: "Servicios profesionales de outsourcing contable, auditoría y revisoría fiscal en Medellín",
-    url: 'https://ramirezasesores.co',
-    siteName: 'Ramírez y Asesores SAS',
-    locale: 'es_CO',
-    type: 'website',
+    description:
+      "Servicios profesionales de outsourcing contable, auditoría y revisoría fiscal en Medellín",
+    url: "https://ramirezasesores.co",
+    siteName: "Ramírez y Asesores SAS",
+    locale: "es_CO",
+    type: "website",
   },
   robots: {
     index: true,
@@ -43,9 +46,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
@@ -62,7 +65,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
-        
+
         {/* Google Analytics 4 */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

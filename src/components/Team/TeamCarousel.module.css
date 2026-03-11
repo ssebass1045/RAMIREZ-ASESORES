@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   padding: 40px 0;
-  background: linear-gradient(135deg, 
+  background: linear-gradient(
+    135deg,
     var(--gray-light) 0%,
     rgba(232, 236, 255, 0.5) 50%,
     var(--gray-light) 100%
@@ -13,13 +14,14 @@
 }
 
 .teamCarousel::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 100%;
-  background: linear-gradient(90deg, 
+  background: linear-gradient(
+    90deg,
     transparent,
     rgba(81, 112, 255, 0.05),
     transparent
@@ -58,7 +60,7 @@
 }
 
 .highlight::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 5px;
   left: 0;
@@ -259,7 +261,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  background: linear-gradient(135deg, #FFD700, #FFA500);
+  background: linear-gradient(135deg, #ffd700, #ffa500);
   color: var(--text-dark);
   padding: 6px 12px;
   border-radius: 20px;
@@ -290,7 +292,8 @@
 }
 
 @keyframes pulseBlue {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
   }
@@ -303,7 +306,11 @@
 /* Efecto especial para la tarjeta de IA */
 .teamCard.iaCard {
   border: 2px solid rgba(0, 198, 255, 0.3);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(232, 240, 255, 0.9));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(232, 240, 255, 0.9)
+  );
 }
 
 .teamCard.iaCard:hover {
@@ -355,6 +362,8 @@
 
 .contactInfo {
   margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-blue);
 }
 
 .contactItem {
@@ -365,64 +374,70 @@
 }
 
 .contactIcon {
-  color: var(--gray-medium);
+  color: var(--primary-blue);
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .contactLink {
-  color: var(--gray-medium);
+  color: var(--primary-blue);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
 .contactLink:hover {
-  color: var(--primary-blue);
+  color: var(--dark-blue);
+  text-decoration: underline;
 }
 
-.experience {
-  margin-bottom: 20px;
-}
-
-.experienceTitle {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-
-.experienceText {
-  color: var(--gray-medium);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.especialidadesTitle {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 10px;
-}
-
-.especialidadesList {
+/* Botones de contacto */
+.contactActions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
 }
 
-.especialidadTag {
-  background: var(--light-blue);
-  color: var(--primary-blue);
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
+.contactActions .contactButton {
+  flex: 1;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
 }
 
-.teamCard:hover .especialidadTag {
+.contactActions .contactButton.btn-outline {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.contactActions .contactButton.btn-outline:hover {
   background: var(--primary-blue);
   color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(81, 112, 255, 0.3);
+}
+
+.contactActions .contactButton.btn-primary {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: 2px solid var(--primary-blue);
+}
+
+.contactActions .contactButton.btn-primary:hover {
+  background: var(--dark-blue);
+  border-color: var(--dark-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(81, 112, 255, 0.3);
 }
 
 /* Footer del carrusel */
@@ -470,13 +485,18 @@
 }
 
 .indicator::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary-blue),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -577,16 +597,16 @@
     align-items: flex-start;
     gap: 20px;
   }
-  
+
   .headerControls {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .title {
     font-size: 2.2rem;
   }
-  
+
   .memberImage {
     height: 220px;
   }
@@ -596,45 +616,45 @@
   .teamCarousel {
     padding: 30px 0;
   }
-  
+
   .carouselHeader,
   .carouselFooter {
     padding: 0 20px;
   }
-  
+
   .title {
     font-size: 1.8rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
-  
+
   .autoPlayButton,
   .navButton {
     width: 45px;
     height: 45px;
     font-size: 18px;
   }
-  
+
   .memberImage {
     height: 200px;
   }
-  
+
   .memberInfo {
     padding: 20px;
   }
-  
+
   .memberName {
     font-size: 1.2rem;
   }
-  
+
   .carouselFooter {
     flex-direction: column;
     gap: 20px;
     align-items: stretch;
   }
-  
+
   .carouselFooter .viewAllButton,
   .carouselFooter .indicators,
   .carouselFooter .counter {
@@ -642,24 +662,24 @@
     margin: 0;
     width: 100%;
   }
-  
+
   .indicators {
     justify-content: center;
   }
-  
+
   .counter {
     justify-content: center;
   }
-  
+
   .viewAllButton {
     justify-content: center;
   }
-  
+
   .autoPlayStatus {
     bottom: 15px;
     right: 15px;
   }
-  
+
   .statusIndicator {
     padding: 5px 10px;
     font-size: 0.7rem;
@@ -671,34 +691,34 @@
   .title {
     font-size: 1.5rem;
   }
-  
+
   .subtitle {
     font-size: 0.9rem;
   }
-  
+
   .memberImage {
     height: 180px;
   }
-  
+
   .memberName {
     font-size: 1.1rem;
   }
-  
+
   .experienceText,
   .contactLink {
     font-size: 0.85rem;
   }
-  
+
   .especialidadTag {
     font-size: 0.75rem;
     padding: 3px 10px;
   }
-  
+
   .autoPlayStatus {
     bottom: 10px;
     right: 10px;
   }
-  
+
   .statusIndicator {
     padding: 4px 8px;
     font-size: 0.65rem;
@@ -722,11 +742,27 @@
   animation: slideInItem 0.5s ease-out forwards;
 }
 
-.carouselItem:nth-child(1) { animation-delay: 0.1s; }
-.carouselItem:nth-child(2) { animation-delay: 0.2s; }
-.carouselItem:nth-child(3) { animation-delay: 0.3s; }
-.carouselItem:nth-child(4) { animation-delay: 0.4s; }
-.carouselItem:nth-child(5) { animation-delay: 0.5s; }
-.carouselItem:nth-child(6) { animation-delay: 0.6s; }
-.carouselItem:nth-child(7) { animation-delay: 0.7s; }
-.carouselItem:nth-child(8) { animation-delay: 0.8s; }
+.carouselItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.carouselItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.carouselItem:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.carouselItem:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.carouselItem:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.carouselItem:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.carouselItem:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.carouselItem:nth-child(8) {
+  animation-delay: 0.8s;
+}
