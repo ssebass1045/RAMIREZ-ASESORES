@@ -417,37 +417,37 @@ export default function Home() {
               <div className={styles.blogGrid}>
                 {[
                   {
-                    img: "/blog/outsourcing-pymes.jpg",
-                    alt: "5 Beneficios del Outsourcing Contable para PYMES en Medellín",
-                    cat: "Outsourcing Contable",
-                    date: "15 Ene 2024",
+                    img: "/blog/requerimientos-dian.jpg",
+                    alt: "Defensa frente a requerimientos especiales de la DIAN",
+                    cat: "Consultoría Tributaria",
+                    date: "01 Mar 2025",
                     title:
-                      "5 Beneficios del Outsourcing Contable para PYMES en Medellín",
-                    desc: "Descubre cómo el outsourcing contable puede optimizar costos y mejorar la eficiencia en tu empresa medellinense.",
+                      "Defensa frente a requerimientos especiales de la DIAN: estrategias jurídicas para contribuyentes",
+                    desc: "Conoce las estrategias jurídicas y contables para responder eficazmente a un requerimiento especial de la DIAN y proteger los intereses de tu empresa.",
                     author: "Néstor Ramírez",
-                    href: "/blog/beneficios-outsourcing-contable-pymes-medellin",
+                    href: "/blog/defensa-requerimientos-especiales-dian",
                   },
                   {
-                    img: "/blog/normativa-tributaria.jpg",
-                    alt: "Novedades en Normativa Tributaria y Laboral 2025 en Colombia",
-                    cat: "Actualidad Tributaria",
-                    date: "10 Ene 2025",
+                    img: "/blog/bancarizacion-costos.jpg",
+                    alt: "Bancarización y rechazo de costos fiscales en Colombia",
+                    cat: "Planeación Tributaria",
+                    date: "05 Mar 2025",
                     title:
-                      "Novedades en Normativa Tributaria y Laboral 2025 en Colombia",
-                    desc: "Guía esencial sobre la UVT 2025, reducción de jornada laboral y cambios en facturación electrónica para este año.",
+                      "Bancarización y rechazo de costos fiscales en Colombia",
+                    desc: "Entiende el principio de bancarización en Colombia, sus consecuencias fiscales y cómo garantizar la deducibilidad de tus costos y gastos empresariales.",
                     author: "María Fernanda Callejas",
-                    href: "/blog/novedades-normativa-tributaria-2025-colombia",
+                    href: "/blog/bancarizacion-rechazo-costos-fiscales-colombia",
                   },
                   {
-                    img: "/blog/revisoria-preventiva.jpg",
-                    alt: "Ventajas de una Revisoría Fiscal Preventiva para tu Empresa",
-                    cat: "Revisoría Fiscal",
-                    date: "20 Feb 2025",
+                    img: "/blog/outsourcing-crecimiento.jpg",
+                    alt: "Ventajas del outsourcing contable para empresas en crecimiento",
+                    cat: "Outsourcing Contable",
+                    date: "10 Mar 2025",
                     title:
-                      "Ventajas de una Revisoría Fiscal Preventiva para tu Empresa",
-                    desc: "Cómo una revisoría fiscal preventiva puede proteger los intereses de tu empresa en Medellín.",
+                      "Ventajas del outsourcing contable para empresas en crecimiento",
+                    desc: "Conoce las principales ventajas del outsourcing contable para empresas en crecimiento: reducción de costos, acceso a expertos y mayor enfoque en el negocio principal.",
                     author: "Viviana Vargas",
-                    href: "/blog/ventajas-revisoria-fiscal-preventiva",
+                    href: "/blog/ventajas-outsourcing-contable-empresas-crecimiento",
                   },
                 ].map((blog, i) => (
                   <ScrollReveal key={i} animation="fade-up" delay={i * 150}>

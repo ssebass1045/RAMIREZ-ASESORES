@@ -11,7 +11,7 @@
 .whatsappButton {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .whatsappButton::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -6px;
   left: -6px;
@@ -38,13 +38,13 @@
 }
 
 .whatsappButton::after {
-  content: '¿Necesitas ayuda?';
+  content: "¿Necesitas ayuda?";
   position: absolute;
   right: calc(100% + 15px);
   top: 50%;
   transform: translateY(-50%);
   background: white;
-  color: #128C7E;
+  color: #128c7e;
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -73,7 +73,8 @@
 }
 
 @keyframes whatsappPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -97,11 +98,14 @@
 }
 
 @keyframes tooltipShow {
-  0%, 70%, 100% {
+  0%,
+  70%,
+  100% {
     opacity: 0;
     transform: translateY(-50%) translateX(10px);
   }
-  80%, 95% {
+  80%,
+  95% {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
   }
@@ -136,8 +140,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .formContainer {
@@ -254,13 +262,93 @@
   padding: 16px;
   font-size: 1.1rem;
   font-weight: 600;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   border: none;
 }
 
 .submitButton:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Estilos para la casilla de Habeas Data */
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: rgba(81, 112, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(81, 112, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.checkboxContainer:hover {
+  background: rgba(81, 112, 255, 0.08);
+  border-color: rgba(81, 112, 255, 0.3);
+}
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--primary-blue);
+  border: 2px solid rgba(81, 112, 255, 0.5);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.checkboxInput:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.checkboxInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(81, 112, 255, 0.2);
+}
+
+.checkboxLabel {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+}
+
+.checkboxLabel::after {
+  content: "*";
+  color: #ff4444;
+  margin-left: 2px;
+}
+
+.privacyLink {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.privacyLink:hover {
+  color: var(--dark-blue);
+  border-bottom-color: var(--dark-blue);
+}
+
+.errorMessage {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* Responsive */

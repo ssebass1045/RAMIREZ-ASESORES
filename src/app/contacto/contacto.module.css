@@ -5,7 +5,11 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--dark-blue) 100%
+  );
   color: var(--white);
   padding: 100px 0 60px;
   text-align: center;
@@ -14,7 +18,7 @@
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -44,7 +48,7 @@
 }
 
 .highlight::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 5px;
   left: 0;
@@ -62,8 +66,9 @@
 
 /* Contact Grid con Fondo Tecnológico */
 .contactGrid {
-  background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.98)), 
-              url('/fondo_contacto.jpg');
+  background:
+    linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.98)),
+    url("/fondo_contacto.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -73,16 +78,29 @@
 }
 
 .contactGrid::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(81, 112, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 200, 255, 0.05) 0%, transparent 50%),
-    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(81, 112, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 200, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.02) 50%,
+      transparent 70%
+    );
   animation: pulse 15s ease-in-out infinite alternate;
 }
 
@@ -110,7 +128,7 @@
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -165,13 +183,13 @@
 }
 
 .formLabel::after {
-  content: '*';
+  content: "*";
   color: #ff4444;
   margin-left: 2px;
 }
 
 .formLabel:has(+ :not([required]))::after {
-  content: '';
+  content: "";
 }
 
 .formInput,
@@ -192,7 +210,7 @@
 .formTextarea:focus {
   outline: none;
   border-color: var(--primary-blue);
-  box-shadow: 
+  box-shadow:
     0 0 0 3px rgba(81, 112, 255, 0.1),
     0 0 20px rgba(81, 112, 255, 0.2);
   background: white;
@@ -249,7 +267,7 @@
 }
 
 .submitButton::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -290,6 +308,74 @@
   border: 1px solid #f5c6cb;
 }
 
+/* Estilos para la casilla de Habeas Data */
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: rgba(81, 112, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(81, 112, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.checkboxContainer:hover {
+  background: rgba(81, 112, 255, 0.08);
+  border-color: rgba(81, 112, 255, 0.3);
+}
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--primary-blue);
+  border: 2px solid rgba(81, 112, 255, 0.5);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.checkboxInput:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.checkboxInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(81, 112, 255, 0.2);
+}
+
+.checkboxLabel {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+}
+
+.checkboxLabel::after {
+  content: "*";
+  color: #ff4444;
+  margin-left: 2px;
+}
+
+.privacyLink {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.privacyLink:hover {
+  color: var(--dark-blue);
+  border-bottom-color: var(--dark-blue);
+}
+
 /* Tarjeta de Presentación del Agente IA */
 .aiPresentationCard {
   position: sticky;
@@ -297,11 +383,15 @@
 }
 
 .aiCardContent {
-  background: linear-gradient(145deg, rgba(20, 30, 48, 0.95), rgba(10, 20, 40, 0.98));
+  background: linear-gradient(
+    145deg,
+    rgba(20, 30, 48, 0.95),
+    rgba(10, 20, 40, 0.98)
+  );
   backdrop-filter: blur(20px);
   border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: 
+  box-shadow:
     0 25px 50px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(81, 112, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -311,7 +401,7 @@
 }
 
 .aiCardContent::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -353,7 +443,7 @@
   object-fit: contain;
   border-radius: 20px;
   border: 3px solid rgba(81, 112, 255, 0.3);
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.4),
     0 0 60px rgba(81, 112, 255, 0.3);
   transition: all 0.5s ease;
@@ -370,21 +460,19 @@
     padding: 0.75rem 1.25rem;
     margin-top: 1rem;
   }
-  
+
   .aiIcon {
     font-size: 1.5rem;
   }
-  
+
   .aiLabel {
     font-size: 0.75rem;
   }
 }
 
-
-
 .aiImage:hover {
   transform: scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 25px 50px rgba(0, 0, 0, 0.5),
     0 0 80px rgba(81, 112, 255, 0.4);
 }
@@ -396,7 +484,11 @@
   transform: translate(-50%, -50%);
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(81, 112, 255, 0.2) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(81, 112, 255, 0.2) 0%,
+    transparent 70%
+  );
   filter: blur(20px);
   z-index: 1;
   animation: pulseGlow 4s ease-in-out infinite alternate;
@@ -419,7 +511,11 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, rgba(81, 112, 255, 0.2), rgba(0, 198, 255, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(81, 112, 255, 0.2),
+    rgba(0, 198, 255, 0.2)
+  );
   color: #00c6ff;
   padding: 1rem 1.5rem;
   border-radius: 50px;
@@ -585,7 +681,7 @@
 }
 
 .aiWhatsappButton {
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: linear-gradient(135deg, #25d366, #128c7e);
   border: none;
   border-radius: 12px;
   padding: 1.25rem 2rem;
@@ -715,7 +811,11 @@
 }
 
 .faqFinalNote {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 215, 0, 0.05) 100%
+  );
   padding: 1.5rem;
   border-radius: 12px;
   border-left: 4px solid #ffd700;
@@ -735,15 +835,15 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
+
   .heroTitle {
     font-size: 2.5rem;
   }
-  
+
   .faqTitle {
     font-size: 2rem;
   }
-  
+
   .aiPresentationCard {
     position: static;
   }
@@ -753,47 +853,47 @@
   .hero {
     padding: 80px 0 40px;
   }
-  
+
   .heroTitle {
     font-size: 2rem;
   }
-  
+
   .heroSubtitle {
     font-size: 1.1rem;
   }
-  
+
   .formRow {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .formContainer,
   .aiCardContent {
     padding: 2rem 1.5rem;
   }
-  
+
   .faqGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .faqTitle {
     font-size: 1.8rem;
   }
-  
+
   .aiImage {
     width: 240px;
     height: 240px;
   }
-  
+
   .aiImageGlow {
     width: 280px;
     height: 280px;
   }
-  
+
   .aiStats {
     grid-template-columns: 1fr;
   }
-  
+
   .aiTitleMain {
     font-size: 2rem;
   }
@@ -803,27 +903,27 @@
   .heroTitle {
     font-size: 1.8rem;
   }
-  
+
   .formTitle,
   .aiTitleMain {
     font-size: 1.5rem;
   }
-  
+
   .aiImage {
     width: 200px;
     height: 200px;
   }
-  
+
   .aiImageGlow {
     width: 240px;
     height: 240px;
   }
-  
+
   .aiBadge {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
   }
-  
+
   .aiWhatsappButton {
     padding: 1rem 1.5rem;
     font-size: 1rem;

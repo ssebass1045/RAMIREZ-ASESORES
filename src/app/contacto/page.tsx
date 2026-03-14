@@ -14,12 +14,14 @@ export default function Contacto() {
     telefono: "",
     servicio: "",
     mensaje: "",
+    habeasData: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [habeasDataError, setHabeasDataError] = useState(false);
 
   const servicios = [
     "Outsourcing Contable",
@@ -34,7 +36,7 @@ export default function Contacto() {
   ];
 
   const contactInfo = {
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "573215829812",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "573219468986",
   };
 
   const handleInputChange = (
@@ -49,10 +51,30 @@ export default function Contacto() {
     }));
   };
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: checked,
+    }));
+    // Limpiar error cuando el usuario marca la casilla
+    if (name === "habeasData" && checked) {
+      setHabeasDataError(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validar Habeas Data
+    if (!formData.habeasData) {
+      setHabeasDataError(true);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setHabeasDataError(false);
 
     try {
       // Crear mensaje para WhatsApp
@@ -92,6 +114,7 @@ ${formData.mensaje}
         telefono: "",
         servicio: "",
         mensaje: "",
+        habeasData: false,
       });
 
       // Resetear el estado después de 5 segundos
@@ -249,6 +272,42 @@ ${formData.mensaje}
                       rows={5}
                       placeholder="Cuéntanos sobre tu empresa y qué necesitas..."
                     />
+                  </div>
+
+                  {/* Casilla de Habeas Data */}
+                  <div className={styles.formGroup}>
+                    <div className={styles.checkboxContainer}>
+                      <input
+                        type="checkbox"
+                        id="habeasData"
+                        name="habeasData"
+                        checked={formData.habeasData}
+                        onChange={handleCheckboxChange}
+                        className={styles.checkboxInput}
+                        required
+                      />
+                      <label
+                        htmlFor="habeasData"
+                        className={styles.checkboxLabel}
+                      >
+                        He leído y acepto la{" "}
+                        <a
+                          href="https://www.ramirezasesores.co/politica-privacidad"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.privacyLink}
+                        >
+                          Política de Privacidad y Tratamiento de Datos
+                        </a>{" "}
+                        de Ramírez Asesores SAS *
+                      </label>
+                    </div>
+                    {habeasDataError && (
+                      <div className={styles.errorMessage}>
+                        ❌ Debes aceptar la Política de Privacidad para
+                        continuar.
+                      </div>
+                    )}
                   </div>
 
                   <div className={styles.formActions}>
